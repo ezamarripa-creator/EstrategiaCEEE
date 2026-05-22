@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
 
     <script>
@@ -39,1238 +39,1329 @@
 
 
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estrategia Estatal de Evaluación Estandarizada y Mejora Continua - Durango</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        institucional: {
-                            900: '#0f172a', /* Azul Obscuro Gubernamental */
-                            800: '#1e3a8a', /* Azul Institucional SEED */
-                            600: '#2563eb', /* Azul de Enfoque Operativo */
-                            100: '#dbeafe'
-                        },
-                        acento: {
-                            verde: '#10b981', /* Indicador de Meta / Logrado */
-                            naranja: '#f97316' /* Indicador de Atención / Crítico */
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estrategia Estatal de Evaluación Estandarizada – SEED Durango 2026-2027</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul-deep: #0a1628;
+    --azul-mid: #1a3a6c;
+    --azul-bright: #1e5ba8;
+    --azul-light: #3b82f6;
+    --verde: #16a34a;
+    --verde-light: #22c55e;
+    --naranja: #ea580c;
+    --naranja-light: #f97316;
+    --gris-bg: #f4f6f9;
+    --gris-card: #ffffff;
+    --gris-border: #e2e8f0;
+    --text-dark: #0f172a;
+    --text-mid: #334155;
+    --text-light: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--gris-bg); color: var(--text-dark); overflow-x: hidden; }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  /* PROGRESS BAR */
+  #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #1e5ba8, #22c55e, #f97316); z-index: 9999; transition: width 0.1s; width: 0%; }
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #f8fafc;
-        }
-        .glass-header {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        /* Configuración de Impresión / Formato de Exportación PDF */
-        @media print {
-            .no-print { display: none !important; }
-            .print-card { 
-                border: 1px solid #e2e8f0 !important; 
-                box-shadow: none !important; 
-                page-break-inside: avoid;
-            }
-            body { background: white; color: black; }
-            main { padding-left: 0 !important; }
-        }
-        /* Transición de Escala de Presentación Directiva */
-        .presentation-view section {
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            border-bottom: 2px dashed #e2e8f0;
-            padding: 4rem 1rem !important;
-        }
-    </style>
+  /* NAVBAR */
+  #navbar {
+    position: fixed; top: 3px; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,22,40,0.97); backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s;
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1.5rem; }
+  .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+  .nav-logo-badge { width: 32px; height: 32px; background: linear-gradient(135deg, #1e5ba8, #22c55e); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+  .nav-logo-text { color: white; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; line-height: 1.2; }
+  .nav-links { display: flex; gap: 0.15rem; flex-wrap: wrap; }
+  .nav-link { color: rgba(255,255,255,0.65); font-size: 0.6rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.3rem 0.5rem; border-radius: 4px; cursor: pointer; transition: all 0.2s; white-space: nowrap; text-decoration: none; }
+  .nav-link:hover, .nav-link.active { color: white; background: rgba(255,255,255,0.12); }
+  .nav-actions { display: flex; gap: 0.4rem; }
+  .btn-nav { font-size: 0.6rem; font-weight: 700; padding: 0.4rem 0.8rem; border-radius: 5px; cursor: pointer; border: none; transition: all 0.2s; letter-spacing: 0.04em; text-transform: uppercase; }
+  .btn-primary { background: linear-gradient(135deg, #1e5ba8, #3b82f6); color: white; }
+  .btn-primary:hover { background: linear-gradient(135deg, #1a4f96, #2563eb); transform: translateY(-1px); }
+  .btn-secondary { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+
+  /* SECTION INDICATOR */
+  #section-indicator { position: fixed; right: 1rem; top: 50%; transform: translateY(-50%); z-index: 900; display: flex; flex-direction: column; gap: 0.5rem; }
+  .sect-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.4); }
+  .sect-dot.active { background: #3b82f6; transform: scale(1.5); border-color: #3b82f6; }
+  .sect-dot:hover { background: rgba(255,255,255,0.7); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; position: relative; overflow: hidden;
+    background: linear-gradient(160deg, #0a1628 0%, #0f2347 40%, #122d58 70%, #0a1628 100%);
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+  }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(30,91,168,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(30,91,168,0.08) 1px, transparent 1px); background-size: 60px 60px; }
+  .hero-orb1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(30,91,168,0.3) 0%, transparent 70%); top: -150px; left: -150px; animation: float 8s ease-in-out infinite; }
+  .hero-orb2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(22,163,74,0.2) 0%, transparent 70%); bottom: -100px; right: -100px; animation: float 10s ease-in-out infinite reverse; }
+  .hero-orb3 { position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(234,88,12,0.15) 0%, transparent 70%); top: 50%; right: 20%; animation: float 6s ease-in-out infinite 2s; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+  .hero-content { position: relative; z-index: 10; text-align: center; padding: 2rem; max-width: 1100px; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(30,91,168,0.3); border: 1px solid rgba(59,130,246,0.4); color: #93c5fd; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero-title { font-size: clamp(1.8rem, 4vw, 3.2rem); font-weight: 900; color: white; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .hero-title span { background: linear-gradient(135deg, #60a5fa, #34d399, #fb923c); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-sub { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 2.5rem; font-weight: 400; letter-spacing: 0.02em; }
+  .hero-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; max-width: 1000px; }
+  .hero-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1.5rem; text-align: left; backdrop-filter: blur(10px); transition: all 0.3s; }
+  .hero-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(59,130,246,0.4); transform: translateY(-3px); }
+  .hero-card-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .hero-card-title { font-size: 0.7rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+  .hero-card-text { font-size: 0.8rem; color: rgba(255,255,255,0.85); font-weight: 500; line-height: 1.4; }
+
+  /* SECTIONS */
+  .section { padding: 5rem 0; }
+  .section-alt { background: white; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .section-header { margin-bottom: 3rem; }
+  .section-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(30,91,168,0.08); color: #1e5ba8; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 0.7rem; border: 1px solid rgba(30,91,168,0.15); }
+  .section-title { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--azul-deep); line-height: 1.2; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+  .section-desc { color: var(--text-light); font-size: 0.85rem; line-height: 1.7; max-width: 600px; }
+  .divider { width: 60px; height: 4px; background: linear-gradient(90deg, #1e5ba8, #22c55e); border-radius: 2px; margin: 0.8rem 0; }
+
+  /* CARDS */
+  .card { background: white; border-radius: 16px; border: 1px solid var(--gris-border); padding: 1.5rem; transition: all 0.3s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .card:hover { box-shadow: 0 8px 30px rgba(10,22,40,0.1); transform: translateY(-3px); border-color: rgba(59,130,246,0.3); }
+  .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem; }
+  .bg-azul-soft { background: rgba(30,91,168,0.1); color: #1e5ba8; }
+  .bg-verde-soft { background: rgba(22,163,74,0.1); color: #16a34a; }
+  .bg-naranja-soft { background: rgba(234,88,12,0.1); color: #ea580c; }
+  .bg-purple-soft { background: rgba(124,58,237,0.1); color: #7c3aed; }
+  .bg-cyan-soft { background: rgba(6,182,212,0.1); color: #0891b2; }
+  .card-title { font-size: 0.85rem; font-weight: 700; color: var(--azul-deep); margin-bottom: 0.4rem; }
+  .card-text { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; }
+
+  /* NORMATIVO */
+  .norma-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; background: white; border-radius: 12px; border: 1px solid var(--gris-border); border-left: 4px solid #1e5ba8; transition: all 0.3s; margin-bottom: 0.8rem; }
+  .norma-card:hover { box-shadow: 0 4px 15px rgba(10,22,40,0.08); transform: translateX(4px); }
+  .norma-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(30,91,168,0.08); color: #1e5ba8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.9rem; }
+  .norma-title { font-size: 0.82rem; font-weight: 700; color: var(--azul-deep); margin-bottom: 0.15rem; }
+  .norma-desc { font-size: 0.75rem; color: var(--text-light); }
+
+  /* OBJETIVOS */
+  .obj-card { background: white; border-radius: 16px; border: 1px solid var(--gris-border); padding: 1.5rem; position: relative; overflow: hidden; transition: all 0.3s; }
+  .obj-card:hover { box-shadow: 0 8px 30px rgba(10,22,40,0.1); transform: translateY(-4px); }
+  .obj-num { font-size: 3rem; font-weight: 900; color: rgba(30,91,168,0.08); position: absolute; top: 0.5rem; right: 1rem; line-height: 1; font-family: 'Crimson Pro', serif; }
+  .obj-chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.6rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.7rem; }
+
+  /* DOWNING TIMELINE */
+  .downing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+  .downing-card { background: white; border-radius: 14px; border: 1px solid var(--gris-border); padding: 1.2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+  .downing-card:hover { box-shadow: 0 6px 25px rgba(10,22,40,0.1); transform: translateY(-3px); }
+  .downing-num { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.2rem 0.5rem; border-radius: 4px; display: inline-block; margin-bottom: 0.7rem; }
+  .downing-fase { font-size: 0.6rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+  .downing-title { font-size: 0.88rem; font-weight: 800; color: var(--azul-deep); margin-bottom: 0.4rem; }
+  .downing-desc { font-size: 0.75rem; color: var(--text-light); line-height: 1.5; }
+  .downing-icon { position: absolute; top: 1rem; right: 1rem; font-size: 1.3rem; opacity: 0.15; }
+
+  /* MOMENTOS */
+  .momento-header { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.5rem; border-radius: 14px; margin-bottom: 1.2rem; }
+  .momento-badge { font-size: 0.7rem; font-weight: 800; padding: 0.4rem 1rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .momento-table { width: 100%; border-collapse: collapse; font-size: 0.78rem; }
+  .momento-table th { background: var(--azul-deep); color: white; padding: 0.7rem 1rem; text-align: left; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .momento-table th:first-child { border-radius: 8px 0 0 8px; }
+  .momento-table th:last-child { border-radius: 0 8px 8px 0; }
+  .momento-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--gris-border); color: var(--text-mid); vertical-align: top; line-height: 1.5; }
+  .momento-table tr:hover td { background: rgba(30,91,168,0.03); }
+  .momento-table tr:last-child td { border-bottom: none; }
+
+  /* ESPECIFICACIONES */
+  .espec-table { width: 100%; border-collapse: collapse; }
+  .espec-table th { background: linear-gradient(135deg, #0a1628, #1a3a6c); color: white; padding: 0.8rem 1rem; text-align: left; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  .espec-table td { padding: 0.9rem 1rem; border-bottom: 1px solid var(--gris-border); font-size: 0.78rem; color: var(--text-mid); vertical-align: middle; }
+  .espec-table tr:hover td { background: rgba(30,91,168,0.03); }
+  .nivel-badge { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.62rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .n1-badge { background: rgba(239,68,68,0.1); color: #dc2626; border: 1px solid rgba(239,68,68,0.2); }
+  .n2-badge { background: rgba(234,88,12,0.1); color: #c2410c; border: 1px solid rgba(234,88,12,0.2); }
+  .n3-badge { background: rgba(22,163,74,0.1); color: #15803d; border: 1px solid rgba(22,163,74,0.2); }
+  .n4-badge { background: rgba(30,91,168,0.1); color: #1e40af; border: 1px solid rgba(30,91,168,0.2); }
+  .n5-badge { background: rgba(124,58,237,0.1); color: #6d28d9; border: 1px solid rgba(124,58,237,0.2); }
+  .progress-bar-cell { height: 6px; border-radius: 3px; background: var(--gris-border); overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
+
+  /* REACTIVOS */
+  .reactivo-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--gris-border); }
+  .reactivo-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; min-width: 800px; }
+  .reactivo-table th { background: #1a3a6c; color: white; padding: 0.7rem 0.9rem; text-align: left; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; white-space: nowrap; }
+  .reactivo-table td { padding: 0.8rem 0.9rem; border-bottom: 1px solid var(--gris-border); color: var(--text-mid); }
+  .reactivo-table tr:last-child td { border-bottom: none; }
+  .reactivo-table tr:hover td { background: rgba(30,91,168,0.03); }
+  .chip { display: inline-flex; align-items: center; font-size: 0.6rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; }
+  .chip-mat { background: rgba(30,91,168,0.1); color: #1e5ba8; }
+  .chip-valid { background: rgba(22,163,74,0.1); color: #16a34a; }
+  .chip-type { background: rgba(234,88,12,0.1); color: #ea580c; }
+
+  /* CRONOGRAMA */
+  .crono-item { display: flex; gap: 1.5rem; margin-bottom: 0; position: relative; }
+  .crono-line { display: flex; flex-direction: column; align-items: center; }
+  .crono-dot { width: 14px; height: 14px; border-radius: 50%; background: #1e5ba8; border: 3px solid white; box-shadow: 0 0 0 3px rgba(30,91,168,0.2); flex-shrink: 0; margin-top: 0.15rem; z-index: 1; }
+  .crono-connector { width: 2px; background: linear-gradient(180deg, #1e5ba8, #e2e8f0); flex: 1; min-height: 30px; }
+  .crono-body { padding-bottom: 1.5rem; flex: 1; }
+  .crono-date { font-size: 0.62rem; font-weight: 700; color: #1e5ba8; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+  .crono-activity { font-size: 0.82rem; font-weight: 600; color: var(--azul-deep); margin-bottom: 0.2rem; }
+  .crono-card-wrap { background: white; border-radius: 10px; border: 1px solid var(--gris-border); padding: 0.8rem 1rem; margin-top: 0.3rem; }
+
+  /* DESCRIPTORES */
+  .desc-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--gris-border); transition: all 0.3s; }
+  .desc-card:hover { box-shadow: 0 8px 25px rgba(10,22,40,0.1); transform: translateY(-3px); }
+  .desc-header { padding: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .desc-body { padding: 1rem 1.2rem 1.2rem; background: white; }
+  .desc-level { font-size: 1.4rem; font-weight: 900; font-family: 'Crimson Pro', serif; }
+  .desc-name { font-size: 0.82rem; font-weight: 800; color: white; }
+  .semaforo { display: flex; gap: 4px; margin-top: 0.5rem; }
+  .sem-dot { width: 10px; height: 10px; border-radius: 50%; }
+
+  /* ESTRATEGIAS */
+  .estrategia-card { background: white; border-radius: 16px; border: 1px solid var(--gris-border); overflow: hidden; transition: all 0.3s; }
+  .estrategia-card:hover { box-shadow: 0 8px 30px rgba(10,22,40,0.1); transform: translateY(-4px); }
+  .estrategia-header { padding: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .estrategia-body { padding: 1.2rem; }
+  .estrategia-title { font-size: 0.9rem; font-weight: 800; color: white; }
+  .estrategia-item { display: flex; align-items: flex-start; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid var(--gris-border); font-size: 0.77rem; color: var(--text-mid); line-height: 1.5; }
+  .estrategia-item:last-child { border-bottom: none; }
+  .estrategia-dot { width: 6px; height: 6px; border-radius: 50%; background: #1e5ba8; flex-shrink: 0; margin-top: 0.4rem; }
+
+  /* INDICADORES KPI */
+  .kpi-card { background: white; border-radius: 16px; border: 1px solid var(--gris-border); padding: 1.5rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+  .kpi-card:hover { box-shadow: 0 8px 30px rgba(10,22,40,0.1); transform: translateY(-3px); }
+  .kpi-value { font-size: 2.2rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; font-family: 'Crimson Pro', serif; }
+  .kpi-label { font-size: 0.7rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; }
+  .kpi-formula { font-size: 0.65rem; color: var(--text-light); margin-top: 0.4rem; font-style: italic; }
+  .kpi-bar { height: 4px; border-radius: 2px; margin-top: 0.8rem; background: var(--gris-border); overflow: hidden; }
+  .kpi-bar-fill { height: 100%; border-radius: 2px; transition: width 1.5s ease; }
+
+  /* RECOMENDACIONES */
+  .recom-card { background: white; border-radius: 14px; border: 1px solid var(--gris-border); padding: 1.2rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; transition: all 0.3s; }
+  .recom-card:hover { box-shadow: 0 6px 20px rgba(10,22,40,0.08); transform: translateX(4px); border-color: rgba(59,130,246,0.3); }
+  .recom-num { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #1e5ba8, #3b82f6); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; }
+  .recom-text { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+  .recom-text strong { color: var(--azul-deep); }
+
+  /* ANEXOS */
+  .anexo-card { background: white; border-radius: 14px; border: 1px solid var(--gris-border); padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; transition: all 0.3s; cursor: pointer; }
+  .anexo-card:hover { box-shadow: 0 4px 15px rgba(10,22,40,0.08); transform: translateY(-2px); border-color: rgba(59,130,246,0.3); }
+  .anexo-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(30,91,168,0.08); color: #1e5ba8; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .anexo-name { font-size: 0.8rem; font-weight: 600; color: var(--azul-deep); }
+  .anexo-type { font-size: 0.65rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; }
+  .anexo-download { margin-left: auto; color: #1e5ba8; font-size: 0.8rem; }
+
+  /* FOOTER */
+  footer { background: var(--azul-deep); color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.72rem; }
+  footer strong { color: white; }
+
+  /* ANIMATIONS */
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-5 { transition-delay: 0.5s; }
+
+  /* EXPAND BTN */
+  .expand-btn { background: white; border: 1px solid var(--gris-border); color: var(--azul-deep); padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; font-size: 0.72rem; font-weight: 600; display: flex; align-items: center; gap: 0.4rem; transition: all 0.2s; }
+  .expand-btn:hover { background: var(--azul-bright); color: white; border-color: var(--azul-bright); }
+
+  /* MODO PRESENTACION */
+  body.present-mode #navbar { display: none; }
+  body.present-mode #section-indicator { display: none; }
+  body.present-mode #progress-bar { display: none; }
+  body.present-mode .section { padding: 3rem 0; }
+
+  /* GLASS CARD */
+  .glass-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.6); border-radius: 16px; }
+
+  /* RESPONSIVE */
+  @media(max-width:768px) {
+    .nav-links { display: none; }
+    .nav-inner { gap: 0.5rem; }
+    .hero-cards { grid-template-columns: 1fr 1fr; }
+    .downing-grid { grid-template-columns: 1fr; }
+    #section-indicator { display: none; }
+  }
+
+  /* PRINT */
+  @media print {
+    #navbar, #section-indicator, #progress-bar, .btn-nav, .nav-actions, .expand-btn { display: none !important; }
+    .section { padding: 2rem 0; page-break-inside: avoid; }
+    #hero { min-height: auto; padding: 3rem 0; }
+    .hero-orb1, .hero-orb2, .hero-orb3 { display: none; }
+    body { font-size: 11pt; }
+    .hero-title { font-size: 1.6rem; }
+    .card, .norma-card, .downing-card, .recom-card, .anexo-card { box-shadow: none !important; border: 1px solid #ccc !important; transform: none !important; }
+  }
+</style>
 </head>
-<body class="text-slate-800 antialiased transition-all duration-300">
+<body>
 
-    <div id="readProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-institucional-600 to-acento-verde z-50 transition-all duration-150" style="width: 0%;"></div>
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
 
-    <div class="flex min-h-screen">
-        
-        <aside id="sidebar" class="no-print fixed inset-y-0 left-0 w-80 bg-institucional-900 text-slate-300 z-40 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col border-r border-slate-800">
-            <div class="p-6 border-b border-slate-800 bg-slate-950/40">
-                <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-institucional-600 to-acento-verde flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-500/20">
-                        <i class="fa-solid fa-gavel text-sm"></i>
-                    </div>
-                    <div>
-                        <h2 class="text-white font-extrabold tracking-wide text-xs uppercase">SEED Durango</h2>
-                        <p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Media Superior y Superior</p>
-                    </div>
-                </div>
-                <div class="mt-4 bg-slate-900 border border-slate-800 rounded-lg p-2 text-center">
-                    <span class="text-[10px] text-acento-verde font-bold tracking-widest block uppercase"><i class="fa-solid fa-shield-halved mr-1"></i> Dashboard Estratégico</span>
-                </div>
-            </div>
+<!-- Section Indicator -->
+<div id="section-indicator">
+  <div class="sect-dot active" onclick="scrollToSection('hero')" title="Inicio"></div>
+  <div class="sect-dot" onclick="scrollToSection('presentacion')" title="Presentación"></div>
+  <div class="sect-dot" onclick="scrollToSection('normativo')" title="Marco Normativo"></div>
+  <div class="sect-dot" onclick="scrollToSection('objetivos')" title="Objetivos"></div>
+  <div class="sect-dot" onclick="scrollToSection('downing')" title="Modelo Downing"></div>
+  <div class="sect-dot" onclick="scrollToSection('momentos')" title="Momentos"></div>
+  <div class="sect-dot" onclick="scrollToSection('especificaciones')" title="Especificaciones"></div>
+  <div class="sect-dot" onclick="scrollToSection('reactivos')" title="Reactivos"></div>
+  <div class="sect-dot" onclick="scrollToSection('cronograma')" title="Cronograma"></div>
+  <div class="sect-dot" onclick="scrollToSection('descriptores')" title="Descriptores"></div>
+  <div class="sect-dot" onclick="scrollToSection('mejora')" title="Mejora"></div>
+  <div class="sect-dot" onclick="scrollToSection('indicadores')" title="Indicadores"></div>
+  <div class="sect-dot" onclick="scrollToSection('recomendaciones')" title="Recomendaciones"></div>
+  <div class="sect-dot" onclick="scrollToSection('anexos')" title="Anexos"></div>
+</div>
 
-            <nav class="flex-1 p-4 space-y-1 overflow-y-auto custom-scrollbar text-xs font-semibold">
-                <a href="#hero" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-white bg-institucional-800 border-l-4 border-institucional-600 transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-window-restore w-4 text-center text-slate-400"></i><span>Presentación General</span></div>
-                    <span id="ind-hero" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#normativo" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-scale-balanced w-4 text-center"></i><span>Marco Normativo</span></div>
-                    <span id="ind-normativo" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#objetivos" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-bullseye w-4 text-center"></i><span>Objetivos Estratégicos</span></div>
-                    <span id="ind-objetivos" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#propósito" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-crosshairs w-4 text-center"></i><span>Propósito del Sistema</span></div>
-                    <span id="ind-propósito" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#downing" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-gears w-4 text-center"></i><span>Modelo Técnico Downing</span></div>
-                    <span id="ind-downing" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#momentos" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-business-time w-4 text-center"></i><span>Estrategia por Momentos</span></div>
-                    <span id="ind-momentos" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#especificaciones" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-table w-4 text-center"></i><span>Tabla de Especificaciones</span></div>
-                    <span id="ind-especificaciones" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#reactivos" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-database w-4 text-center"></i><span>Repositorio de Reactivos</span></div>
-                    <span id="ind-reactivos" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#cronograma" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-calendar-week w-4 text-center"></i><span>Cronograma Institucional</span></div>
-                    <span id="ind-cronograma" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#descriptores" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-chart-gantt w-4 text-center"></i><span>Descriptores Cognitivos</span></div>
-                    <span id="ind-descriptores" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#mejora" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-graduation-cap w-4 text-center"></i><span>Estrategias de Mejora</span></div>
-                    <span id="ind-mejora" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#indicadores" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-square-poll-vertical w-4 text-center"></i><span>Indicadores de Métricas</span></div>
-                    <span id="ind-indicadores" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#recomendaciones" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-star w-4 text-center"></i><span>Recomendaciones Finales</span></div>
-                    <span id="ind-recomendaciones" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-                <a href="#anexos" class="nav-lnk flex items-center justify-between px-4 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition-all">
-                    <div class="flex items-center space-x-3"><i class="fa-solid fa-paperclip w-4 text-center"></i><span>Anexos y Recursos</span></div>
-                    <span id="ind-anexos" class="text-[9px] bg-slate-950 px-1.5 py-0.5 rounded text-slate-400">0%</span>
-                </a>
-            </nav>
-
-            <div class="p-4 border-t border-slate-800 bg-slate-950/20 text-[10px] text-slate-500 text-center">
-                <span class="text-slate-400 block font-bold font-mono">EDICIÓN EJECUTIVA 2026</span>
-                Secretaría de Educación del Estado de Durango
-            </div>
-        </aside>
-
-        <main class="flex-1 min-w-0 lg:pl-80 transition-all duration-300">
-            
-            <header class="no-print sticky top-0 z-30 glass-header border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-                <div class="flex items-center space-x-4">
-                    <button id="sidebarToggle" class="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition">
-                        <i class="fa-solid fa-bars-staggered text-lg"></i>
-                    </button>
-                    <div>
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-institucional-800 bg-institucional-100 px-2 py-0.5 rounded-md">Consolidado Interno de Control</span>
-                        <h1 class="text-base font-extrabold text-slate-900 hidden sm:block tracking-tight">Estrategia de Evaluación Estandarizada Estatal (EEE)</h1>
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-2">
-                    <button onclick="toggleExpandLayout()" id="layoutBtn" class="px-3 py-1.5 text-xs font-bold rounded-lg border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-maximize"></i> <span class="hidden md:inline">Expandir Secciones</span>
-                    </button>
-                    <button onclick="togglePresentationMode()" id="presentationBtn" class="px-3 py-1.5 text-xs font-bold rounded-lg border border-blue-200 text-institucional-800 bg-blue-50 hover:bg-blue-100 transition shadow-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-chalkboard-user"></i> <span class="hidden md:inline">Modo Presentación</span>
-                    </button>
-                    <button onclick="window.print()" class="px-3 py-1.5 text-xs font-bold rounded-lg bg-institucional-900 text-white hover:bg-slate-800 transition shadow-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-print"></i> <span>Descargar PDF</span>
-                    </button>
-                </div>
-            </header>
-
-            <div id="contentContainer" class="p-6 max-w-6xl mx-auto space-y-16 py-12">
-                
-                <section id="hero" class="scroll-mt-24 pt-4">
-                    <div class="relative bg-gradient-to-br from-slate-900 via-institucional-900 to-slate-950 text-white rounded-3xl p-8 md:p-12 shadow-xl overflow-hidden border border-slate-800">
-                        <div class="absolute top-0 right-0 w-80 h-80 bg-institucional-600/10 rounded-full blur-3xl -mr-20 -mt-20"></div>
-                        <div class="absolute bottom-0 left-0 w-80 h-80 bg-acento-verde/5 rounded-full blur-3xl -ml-20 -mb-20"></div>
-
-                        <div class="relative z-10 space-y-6">
-                            <div class="flex items-center space-x-2">
-                                <span class="text-[10px] font-bold uppercase tracking-widest bg-acento-verde/20 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
-                                    <i class="fa-solid fa-layer-group mr-1"></i> Programa Educativo SEED 2026-2027
-                                </span>
-                            </div>
-                            <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-none max-w-4xl">
-                                Estrategia Estatal de Evaluación Estandarizada y Mejora Continua para la Educación Media Superior en Durango
-                            </h2>
-                            <p class="text-slate-400 text-sm font-medium max-w-2xl leading-relaxed">
-                                Eje estructurado para la "Mejora de los aprendizajes fundamentales y prioritarios", consolidado como instrumento científico clave para diagnosticar, monitorear y elevar el logro educativo del estado.
-                            </p>
-                            <div class="pt-6 border-t border-slate-800 flex flex-wrap items-center gap-6 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                                <div><i class="fa-solid fa-location-dot text-acento-verde mr-1.5"></i> Blvd. Domingo Arrieta 1700, Durango, Dgo.</div>
-                                <div><i class="fa-solid fa-phone text-institucional-600 mr-1.5"></i> 01 (618) 137-67-36</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-institucional-800 mb-3"><i class="fa-solid fa-crosshairs text-sm"></i></div>
-                                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Cultura de Mejora</h3>
-                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Tránsito integral de una evaluación reactiva tradicional a una cultura basada en evidencia y equidad educativa.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-acento-verde mb-3"><i class="fa-solid fa-users-viewfinder text-sm"></i></div>
-                                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Participación Social</h3>
-                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Esfuerzo coordinado inter-subsistemas que incorpora formalmente a docentes, directivos y familias.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-acento-naranja mb-3"><i class="fa-solid fa-vial-circle-check text-sm"></i></div>
-                                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Modelo Downing</h3>
-                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Gobernanza técnica fundamentada científicamente sobre el proceso metodológico estandarizado de 12 pasos.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <div class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 mb-3"><i class="fa-solid fa-chart-line text-sm"></i></div>
-                                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Foco de Calidad</h3>
-                                <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">Monitoreo permanente y sistematizado diseñado específicamente para elevar los indicadores de EMS del Estado.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="normativo" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-institucional-800 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">1. Marco Normativo de Referencia</h3>
-                    </div>
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider">
-                                    <tr>
-                                        <th class="p-4 w-1/3 border-b border-slate-800">Normativa Vigente</th>
-                                        <th class="p-4 border-b border-slate-800">Ámbito de Aplicación Legal e Institucional</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 font-medium text-slate-700">
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Constitución Política de los Estados Unidos Mexicanos (Art. 3°)</td>
-                                        <td class="p-4">Garantía institucional del derecho a la educación pública con estándares de calidad y equidad estructural.</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Ley General de Educación</td>
-                                        <td class="p-4">La evaluación formal integrada como componente medular y permanente de todo el proceso educativo nacional.</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Ley General de Educación del Estado de Durango</td>
-                                        <td class="p-4">Atribuciones normativas explícitas del estado para diseñar, coordinar y ejecutar políticas de evaluación educativa local.</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Lineamientos </td>
-                                        <td class="p-4">Regulación de la aplicación, control técnico y difusión transparente del examen semestral institucional.</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Modelo Educativo 2025 (EMS)</td>
-                                        <td class="p-4">Alineación de los instrumentos bajo un enfoque integral de competencias fundamentales y perspectiva humanista.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="objetivos" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <div class="h-6 w-1 bg-acento-verde rounded-full"></div>
-                            <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">II. Objetivos Estratégicos</h3>
-                        </div>
-                        <span class="text-[10px] bg-emerald-50 text-acento-verde font-bold px-2 py-0.5 rounded-md uppercase tracking-wider border border-emerald-200">Visión de Confiabilidad</span>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="print-card md:col-span-3 bg-gradient-to-r from-institucional-900 to-slate-900 text-white p-6 rounded-2xl shadow-sm border border-slate-800">
-                            <span class="text-[9px] font-extrabold text-blue-400 bg-blue-950 px-2 py-1 rounded uppercase tracking-widest">Mandato Central</span>
-                            <h4 class="text-sm font-bold mt-2 uppercase tracking-wide">Objetivo General del Proyecto</h4>
-                            <p class="text-slate-300 text-xs mt-2 leading-relaxed font-medium">
-                                Implementar una evaluación estandarizada estatal válida, confiable y equitativa, que sirva como referente para la mejora de la enseñanza y el aprendizaje en la educación media superior del Estado de Durango.
-                            </p>
-                        </div>
-
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] mb-3">01</span>
-                                <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Diagnóstico Integral</h5>
-                                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Diagnosticar el nivel de dominio de conocimientos y habilidades en Lengua, Matemáticas, Ciencias Sociales, Naturales, Humanidades, Cultura Digital e Inglés.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] mb-3">02</span>
-                                <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Estandarización Rigor</h5>
-                                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Estandarizar los procesos de diseño, aplicación y análisis de resultados con base en el modelo psicométrico Downing.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-                            <div>
-                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] mb-3">03</span>
-                                <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Gobernanza Escolar</h5>
-                                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Fortalecer la participación activa de docentes, directivos y padres de familia como observadores calificados y gestores de mejora continua.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between md:col-span-1">
-                            <div>
-                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] mb-3">04</span>
-                                <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Equidad de Subsistema</h5>
-                                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Reducir brechas estructurales entre subsistemas y al interior de los planteles mediante estrategias de intervención diferenciadas.</p>
-                            </div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between md:col-span-2">
-                            <div>
-                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-[10px] mb-3">05</span>
-                                <h5 class="text-xs font-bold text-slate-900 uppercase tracking-wide">Sustentabilidad Técnica futura</h5>
-                                <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">Generar bancos de reactivos validados estadísticamente para su reutilización en futuras aplicaciones institucionales del estado.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="propósito" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-acento-naranja rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">III. Propósito de la Evaluación</h3>
-                    </div>
-                    <div class="print-card bg-white border border-slate-200 p-6 rounded-2xl shadow-sm space-y-4">
-                        <p class="text-xs font-bold text-slate-900 uppercase tracking-wide">
-                            Meta central: Identificar el nivel de dominio de los aprendizajes esenciales adquiridos por los estudiantes durante el semestre que concluye, con el fin de ejecutar las siguientes cuatro líneas clave:
-                        </p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-medium text-slate-700">
-                            <div class="p-3 bg-slate-50 rounded-xl flex items-start space-x-3">
-                                <i class="fa-solid fa-chart-bar text-institucional-600 mt-0.5"></i>
-                                <span>Valorar cuantitativamente el logro por asignatura y subsistema educativo estatal.</span>
-                            </div>
-                            <div class="p-3 bg-slate-50 rounded-xl flex items-start space-x-3">
-                                <i class="fa-solid fa-magnifying-glass-chart text-acento-naranja mt-0.5"></i>
-                                <span>Detectar áreas de oportunidad críticas en los procesos de enseñanza-aprendizaje.</span>
-                            </div>
-                            <div class="p-3 bg-slate-50 rounded-xl flex items-start space-x-3">
-                                <i class="fa-solid fa-map-location text-acento-verde mt-0.5"></i>
-                                <span>Orientar de forma científica la planeación didáctica y las estrategias de intervención remedial.</span>
-                            </div>
-                            <div class="p-3 bg-slate-50 rounded-xl flex items-start space-x-3">
-                                <i class="fa-solid fa-building-shield text-slate-700 mt-0.5"></i>
-                                <span>Fementar una cultura transparente de rendición de cuentas e indicadores objetivos en el aula.</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="downing" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-slate-800 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">IV. Modelo Técnico de Referencia: Proceso de 12 Pasos (Downing)</h3>
-                    </div>
-                    
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="overflow-x-auto custom-scrollbar">
-                            <table class="w-full text-left border-collapse text-xs min-w-[800px]">
-                                <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider text-[10px]">
-                                    <tr>
-                                        <th class="p-3 border-b border-slate-800 text-center">Paso</th>
-                                        <th class="p-3 border-b border-slate-800">Fase del Ecosistema</th>
-                                        <th class="p-3 border-b border-slate-800">Etapa Técnica</th>
-                                        <th class="p-3 border-b border-slate-800">Fundamento / Actividad Clave</th>
-                                        <th class="p-3 border-b border-slate-800">Responsable Operativo</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 font-medium text-slate-700">
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">1</td>
-                                        <td class="p-3 font-bold text-institucional-800">Fundamento</td>
-                                        <td class="p-3 font-bold">1. Propósito</td>
-                                        <td class="p-3">Evaluación diagnóstica y formativa estatal unificada.</td>
-                                        <td class="p-3 text-slate-500">Comité CAER Estatal</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">2</td>
-                                        <td class="p-3 font-bold text-institucional-800">Fundamento</td>
-                                        <td class="p-3 font-bold">2. Constructo</td>
-                                        <td class="p-3">Definición explícita de competencias esenciales por área.</td>
-                                        <td class="p-3 text-slate-500">Comité CAER Estatal</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">3</td>
-                                        <td class="p-3 font-bold text-blue-600">Diseño</td>
-                                        <td class="p-3 font-bold">3. Tabla de especificaciones</td>
-                                        <td class="p-3">Estructura formal por asignatura, ponderación y nivel cognitivo.</td>
-                                        <td class="p-3 text-slate-500">Comité CAER Estatal</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">4</td>
-                                        <td class="p-3 font-bold text-blue-600">Diseño</td>
-                                        <td class="p-3 font-bold">4. Creación de reactivos</td>
-                                        <td class="p-3">Diseño técnico del instrumento base de la prueba académica.</td>
-                                        <td class="p-3 text-slate-500">Expertos y Editores</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">5</td>
-                                        <td class="p-3 font-bold text-amber-600">Construcción</td>
-                                        <td class="p-3 font-bold">5. Validación de contenido</td>
-                                        <td class="p-3">Fase de arbitraje por pares calificados y comités.</td>
-                                        <td class="p-3 text-slate-500">Expertos y Editores</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">6</td>
-                                        <td class="p-3 font-bold text-amber-600">Construcción</td>
-                                        <td class="p-3 font-bold">6. Pilotaje</td>
-                                        <td class="p-3">Aplicación controlada en muestra representativa por subsistema.</td>
-                                        <td class="p-3 text-slate-500">Muestra por Subsistema</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">7</td>
-                                        <td class="p-3 font-bold text-purple-600">Prueba</td>
-                                        <td class="p-3 font-bold">7. Análisis estadístico</td>
-                                        <td class="p-3">Cálculo matemático de índices de dificultad y discriminación psicométrica.</td>
-                                        <td class="p-3 text-slate-500">Muestra por Subsistema</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">8</td>
-                                        <td class="p-3 font-bold text-purple-600">Prueba</td>
-                                        <td class="p-3 font-bold">8. Selección de reactivos</td>
-                                        <td class="p-3">Filtrado y alta en el Banco estatal normalizado de reactivos.</td>
-                                        <td class="p-3 text-slate-500">Banco Estatal</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">9</td>
-                                        <td class="p-3 font-bold text-teal-600">Producción</td>
-                                        <td class="p-3 font-bold">9. Ensamblaje</td>
-                                        <td class="p-3">Estructuración final en versiones digital e impresa.</td>
-                                        <td class="p-3 text-slate-500 text-xs font-bold">Versiones Digital/Impresa</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">10</td>
-                                        <td class="p-3 font-bold text-teal-600">Producción</td>
-                                        <td class="p-3 font-bold">10. Estandarización logística</td>
-                                        <td class="p-3">Control de tiempos, asignación de dispositivos, plataforma y recursos.</td>
-                                        <td class="p-3 text-slate-500">Plataforma y Recursos</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">11</td>
-                                        <td class="p-3 font-bold text-acento-verde">Aplicación</td>
-                                        <td class="p-3 font-bold">11. Aplicación estatal</td>
-                                        <td class="p-3 text-slate-900 font-bold">Ejecución en Fecha única por ciclo escolar.</td>
-                                        <td class="p-3 text-slate-500">Fecha Única Estatal</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50/70 transition">
-                                        <td class="p-3 text-center font-bold text-slate-900 bg-slate-50">12</td>
-                                        <td class="p-3 font-bold text-slate-600">Cierre</td>
-                                        <td class="p-3 font-bold">12. Calificación y reporte</td>
-                                        <td class="p-3">Consolidación de datos en el Cuadro de mando integral por subsistema.</td>
-                                        <td class="p-3 text-slate-500">Cuadro de Mando Integral</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="momentos" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-indigo-600 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">V. Desarrollo de la Estrategia por Momentos</h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-6">
-                        <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-5 space-y-3">
-                            <span class="text-[9px] font-bold uppercase tracking-wider bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200">Fase Operativa Inicial</span>
-                            <h4 class="text-xs font-extrabold text-slate-900 uppercase">Antes de la Aplicación</h4>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left border-collapse text-xs">
-                                    <thead class="bg-slate-100 text-slate-700 font-bold">
-                                        <tr>
-                                            <th class="p-2 border-b border-slate-200">Actividad Central</th>
-                                            <th class="p-2 border-b border-slate-200">Descripción Estratégica</th>
-                                            <th class="p-2 border-b border-slate-200">Responsable Asignado</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-slate-100 text-slate-600">
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Socialización</td>
-                                            <td class="p-2">Reuniones informativas minuciosas a estudiantes, docentes y padres de familia.</td>
-                                            <td class="p-2 font-medium">Autoridad del Subsistema y Director del plantel</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Capacitación</td>
-                                            <td class="p-2">Taller estructurado presencial para aplicadores y observadores validados.</td>
-                                            <td class="p-2 font-medium">Comité definido en el Subsistema</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Simulacro</td>
-                                            <td class="p-2">Pruebas controladas de acceso a la plataforma utilizando exclusivamente el correo institucional.</td>
-                                            <td class="p-2 font-medium">Coordinador de aplicación</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Verificación técnica</td>
-                                            <td class="p-2">Auditoría física de dispositivos disponibles, conectividad de red y temporizadores.</td>
-                                            <td class="p-2 font-medium">Docente aplicador</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-5 space-y-3">
-                            <span class="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded border border-emerald-200">Jornada de Ejecución</span>
-                            <h4 class="text-xs font-extrabold text-slate-900 uppercase">Durante la Aplicación</h4>
-                            <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 text-xs font-medium text-slate-700">
-                                <div class="p-3 bg-slate-50 rounded-xl">
-                                    <span class="block text-[10px] text-slate-400 uppercase font-bold">Duración</span>
-                                    <span class="text-slate-900 font-bold block mt-0.5">90 minutos</span>
-                                    <span class="text-[10px] text-slate-500">Por cada evaluación</span>
-                                </div>
-                                <div class="p-3 bg-slate-50 rounded-xl">
-                                    <span class="block text-[10px] text-slate-400 uppercase font-bold">Filtro Acceso</span>
-                                    <span class="text-slate-900 font-bold block mt-0.5">Autenticado</span>
-                                    <span class="text-[10px] text-slate-500">Solo correo institucional</span>
-                                </div>
-                                <div class="p-3 bg-slate-50 rounded-xl">
-                                    <span class="block text-[10px] text-slate-400 uppercase font-bold">Supervisión</span>
-                                    <span class="text-slate-900 font-bold block mt-0.5">Estructura Dual</span>
-                                    <span class="text-[10px] text-slate-500">Docente aplicador + padre observador</span>
-                                </div>
-                                <div class="p-3 bg-slate-50 rounded-xl">
-                                    <span class="block text-[10px] text-slate-400 uppercase font-bold">Prohibidos</span>
-                                    <span class="text-acento-naranja font-bold block mt-0.5">Celulares / Apuntes</span>
-                                    <span class="text-[10px] text-slate-500">Cero material externo</span>
-                                </div>
-                                <div class="p-3 bg-slate-50 rounded-xl">
-                                    <span class="block text-[10px] text-slate-400 uppercase font-bold">Regla Retraso</span>
-                                    <span class="text-red-600 font-bold block mt-0.5">Máx. 1 hora</span>
-                                    <span class="text-[10px] text-slate-500">Sin derecho a tiempo extra</span>
-                                </div>
-                            </div>
-                            <p class="text-[11px] text-slate-500 italic pt-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> <strong>Inasistencia justificada legalmente admitida:</strong> Únicamente por fallecimiento familiar, hospitalización comprobable o estado gravídico.</p>
-                        </div>
-
-                        <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-5 space-y-3">
-                            <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded border border-amber-200">Fase de Impacto y Remediación</span>
-                            <h4 class="text-xs font-extrabold text-slate-900 uppercase">Después de la Aplicación</h4>
-                            <div class="overflow-x-auto">
-                                <table class="w-full text-left border-collapse text-xs">
-                                    <thead class="bg-slate-100 text-slate-700 font-bold">
-                                        <tr>
-                                            <th class="p-2 border-b border-slate-200">Actividad Post-Prueba</th>
-                                            <th class="p-2 border-b border-slate-200">Descripción de Ejecución Directiva</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-slate-100 text-slate-600">
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800 w-1/3">Análisis colegiado</td>
-                                            <td class="p-2">Procesamiento crítico y cruce de datos por cada academia institucional y por plantel integrado.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Elaboración de diagnóstico</td>
-                                            <td class="p-2">Reporte analítico y contextual basado estrictamente en resultados por área y nivel conceptual alcanzado.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Diseño de estrategias de mejora</td>
-                                            <td class="p-2">Establecimiento de planes de acción diferenciados por subsistema operativo y por plantel local.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Canalización oportuna</td>
-                                            <td class="p-2 text-acento-naranja font-bold">Identificación y apoyo focalizado a estudiantes en riesgo latente de reprobación o deserción del ciclo.</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="p-2 font-bold text-slate-800">Difusión de resultados</td>
-                                            <td class="p-2">Socialización del estado de logro académico a estudiantes, docentes y núcleos de padres de familia.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="especificaciones" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-3">
-                            <div class="h-6 w-1 bg-rose-500 rounded-full"></div>
-                            <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">VI. Tabla de Especificaciones (Ejemplo Real por Área)</h3>
-                        </div>
-                        <span class="text-xs font-bold text-slate-500">Módulo de Referencia: <strong class="text-slate-900">Pensamiento Matemático - 2º Semestre</strong></span>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider">
-                                    <tr>
-                                        <th class="p-4">Contenido Formativo Base</th>
-                                        <th class="p-4">Indicador Cognitivo Operativo</th>
-                                        <th class="p-4 text-center">Nivel Cognitivo</th>
-                                        <th class="p-4 text-center">N° de Reactivos</th>
-                                        <th class="p-4 text-right">Ponderación %</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 font-medium text-slate-700">
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Operaciones básicas con enteros</td>
-                                        <td class="p-4">Resuelve problemas de cálculo numérico directo.</td>
-                                        <td class="p-4 text-center"><span class="px-2 py-0.5 font-bold rounded bg-slate-100 text-slate-700 text-[10px]">N1 (Recordar)</span></td>
-                                        <td class="p-4 text-center font-bold text-slate-900">5</td>
-                                        <td class="p-4 text-right font-bold text-slate-900">20%</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Fracciones y porcentajes</td>
-                                        <td class="p-4">Aplica procedimientos aritméticos en contextos variados.</td>
-                                        <td class="p-4 text-center"><span class="px-2 py-0.5 font-bold rounded bg-blue-50 text-blue-700 text-[10px]">N2 (Comprender)</span></td>
-                                        <td class="p-4 text-center font-bold text-slate-900">6</td>
-                                        <td class="p-4 text-right font-bold text-slate-900">24%</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Ecuaciones lineales</td>
-                                        <td class="p-4">Transforma modelos algebraicos y despeja variables complejas.</td>
-                                        <td class="p-4 text-center"><span class="px-2 py-0.5 font-bold rounded bg-amber-50 text-amber-700 text-[10px]">N3 (Aplicar)</span></td>
-                                        <td class="p-4 text-center font-bold text-slate-900">5</td>
-                                        <td class="p-4 text-right font-bold text-slate-900">20%</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Geometría básica</td>
-                                        <td class="p-4">Analiza relaciones espaciales y cálculo de perímetros/áreas.</td>
-                                        <td class="p-4 text-center"><span class="px-2 py-0.5 font-bold rounded bg-purple-50 text-purple-700 text-[10px]">N4 (Analizar)</span></td>
-                                        <td class="p-4 text-center font-bold text-slate-900">4</td>
-                                        <td class="p-4 text-right font-bold text-slate-900">16%</td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-4 font-bold text-slate-900 bg-slate-50/50">Sucesiones gráficas</td>
-                                        <td class="p-4">Extrae información lógica abstracta a partir de tablas y patrones.</td>
-                                        <td class="p-4 text-center"><span class="px-2 py-0.5 font-bold rounded bg-emerald-50 text-acento-verde text-[10px]">N5 (Evaluar)</span></td>
-                                        <td class="p-4 text-center font-bold text-slate-900">5</td>
-                                        <td class="p-4 text-right font-bold text-slate-900">20%</td>
-                                    </tr>
-                                    <tr class="bg-slate-950 text-white font-extrabold">
-                                        <td colspan="3" class="p-4 text-left uppercase tracking-wider">Métricas Totales del Instrumento</td>
-                                        <td class="p-4 text-center text-sm text-acento-verde">25 Reactivos</td>
-                                        <td class="p-4 text-right text-sm text-blue-400">100% Total</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="p-4 bg-slate-50 border-t border-slate-200 text-[11px] text-slate-500 font-semibold">
-                            <i class="fa-solid fa-clock mr-1 text-institucional-600"></i> Tiempo sugerido de resolución en aula: 90 minutos (Parámetro normativo en validación).
-                        </div>
-                    </div>
-                </section>
-
-                <section id="reactivos" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-violet-600 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">VII. Repositorio de Reactivos (Formato Sugerido del Documento)</h3>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-6 space-y-4">
-                        <div class="grid grid-cols-2 md:grid-cols-6 gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-500 border-b border-slate-100 pb-3">
-                            <div><span class="block font-medium text-slate-400">ID Reactivo</span><span class="text-slate-900 font-mono">R001</span></div>
-                            <div><span class="block font-medium text-slate-400">Clave</span><span class="text-slate-900 font-mono">MAT202</span></div>
-                            <div><span class="block font-medium text-slate-400">Materia</span><span class="text-slate-900">Matemáticas</span></div>
-                            <div><span class="block font-medium text-slate-400">Área Conocimiento</span><span class="text-institucional-800">Pensamiento Mat.</span></div>
-                            <div><span class="block font-medium text-slate-400">Nivel Cognitivo</span><span class="px-1.5 py-0.2 rounded bg-amber-50 text-acento-naranja">N3</span></div>
-                            <div><span class="block font-medium text-slate-400">Tipo Reactivo</span><span class="text-slate-900">Opción Múltiple</span></div>
-                        </div>
-
-                        <div class="space-y-2 text-xs font-semibold">
-                            <span class="block text-slate-400 uppercase text-[9px] tracking-widest">Planteamiento Técnico / Enunciado:</span>
-                            <p class="text-slate-900 bg-slate-50 p-4 rounded-xl border border-slate-100 font-medium leading-relaxed">
-                                Si x + 3 = 10, ¿cuánto vale la variable x?
-                            </p>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-bold">
-                            <div class="p-3 border border-slate-200 rounded-xl flex items-center space-x-3 bg-white">
-                                <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10px]">A</span>
-                                <span>5</span>
-                            </div>
-                            <div class="p-3 border border-slate-200 rounded-xl flex items-center space-x-3 bg-white">
-                                <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10px]">B</span>
-                                <span>6</span>
-                            </div>
-                            <div class="p-3 border border-emerald-300 rounded-xl flex items-center justify-between bg-emerald-50 text-emerald-900 shadow-sm px-4">
-                                <div class="flex items-center space-x-3">
-                                    <span class="w-5 h-5 rounded-full bg-acento-verde text-white flex items-center justify-center text-[10px]"><i class="fa-solid fa-check"></i></span>
-                                    <span>7 (Opción Correcta)</span>
-                                </div>
-                                <span class="text-[9px] bg-emerald-200/50 px-1 py-0.2 rounded">Clave: C</span>
-                            </div>
-                            <div class="p-3 border border-slate-200 rounded-xl flex items-center space-x-3 bg-white">
-                                <span class="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10px]">D</span>
-                                <span>8</span>
-                            </div>
-                        </div>
-
-                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-400">
-                            <div><i class="fa-solid fa-stopwatch mr-1"></i> Tiempo de resolución estimado: <span class="text-slate-800">45 segundos</span></div>
-                            <div>Status Estadístico: <span class="text-acento-verde uppercase"><i class="fa-solid fa-circle-check"></i> Ítems Validado Psicométricamente</span></div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="cronograma" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-cyan-500 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">VIII. Cronograma de Actividades</h3>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-6">
-                        <div class="relative border-l-2 border-slate-100 ml-4 pl-6 space-y-8 text-xs font-semibold">
-                            
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-slate-400 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-slate-100 text-slate-700 font-bold px-2 py-0.5 rounded uppercase">Junio - Julio 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Fase de Diseño Conceptual Inicial</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Diseño técnico y validación colegiada de la tabla de descriptores y competencias clave del proyecto.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-blue-50 text-blue-700 font-bold px-2 py-0.5 rounded uppercase">Agosto 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Validación de la Estructura de Medición</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Diseño y validación metodológica fina de la tabla de especificaciones e indicadores por área curricular.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-blue-50 text-blue-700 font-bold px-2 py-0.5 rounded uppercase">Agosto - Septiembre 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Estrategias de Despliegue de los Subsistemas</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Diseño de adaptaciones y adecuaciones operativas específicas por cada subsistema escolar estatal.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-purple-50 text-purple-700 font-bold px-2 py-0.5 rounded uppercase">Septiembre 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Arbitraje Técnico de Reactivos (Comité CAER)</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Validación analítica de la pertinencia y calibración técnica del banco de ítems por comités de expertos.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-purple-600 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-purple-50 text-purple-700 font-bold px-2 py-0.5 rounded uppercase">1a Semana de Octubre 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Pilotaje de Control Psicométrico</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Fase de pilotaje estatal controlado sobre una muestra probabilística para determinar la calibración analítica de los exámenes.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-acento-verde border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded uppercase">9 al 13 de Noviembre 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wide">Jornada General de Aplicación Oficial Estatal</h4>
-                                </div>
-                                <p class="text-slate-900 mt-1 font-bold leading-relaxed">Ventana unificada nacional e institucional para la aplicación de la prueba en todos los planteles integrados de Durango.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-acento-naranja border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-orange-50 text-orange-700 font-bold px-2 py-0.5 rounded uppercase">Diciembre 2026</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Análisis Masivo de Datos Colectados</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Cálculo de bases de datos crudas, sábanas analíticas y empaquetamiento psicométrico formal.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-acento-naranja border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-orange-50 text-orange-700 font-bold px-2 py-0.5 rounded uppercase">Enero 2027</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Emisión de Reportes por Subsistema</h4>
-                                </div>
-                                <p class="text-slate-500 mt-1 font-medium leading-relaxed">Rendición de informes ejecutivos específicos a los mandos medios y directores generales estatales.</p>
-                            </div>
-
-                            <div class="relative">
-                                <div class="absolute -left-[31px] top-0.5 w-4 h-4 rounded-full bg-slate-900 border-4 border-white shadow-sm"></div>
-                                <div class="flex flex-wrap items-baseline gap-2">
-                                    <span class="text-[10px] bg-slate-950 text-slate-100 font-bold px-2 py-0.5 rounded uppercase">Febrero - Junio 2027</span>
-                                    <h4 class="text-sm font-bold text-slate-900">Activación de Estrategias de Mejora Continua</h4>
-                                </div>
-                                <p class="text-slate-900 mt-1 font-bold leading-relaxed">Ejecución obligatoria en el aula de los planes pedagógicos remediales diseñados por cada plantel educativo.</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <section id="descriptores" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-yellow-500 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">IX. Descriptores por Nivel Cognitivo</h3>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="p-4 bg-slate-900 text-white text-xs font-bold uppercase tracking-wider">Gobernanza del Semáforo General de Dominio</div>
-                        <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-slate-200 text-xs">
-                            <div class="p-4 space-y-2 border-l-4 border-l-red-500">
-                                <span class="font-bold text-red-700 bg-red-50 px-2 py-0.5 rounded">N1 - Insuficiente</span>
-                                <p class="text-slate-600 font-medium">Reconoce conceptos y vocablo básico esencial, pero no cuenta con las facultades operativas para aplicarlos en problemas.</p>
-                            </div>
-                            <div class="p-4 space-y-2 border-l-4 border-l-amber-500">
-                                <span class="font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded">N2 - Elemental</span>
-                                <p class="text-slate-600 font-medium">Identifica relaciones simples de causa-efecto y comprende información explícita de textos elementales.</p>
-                            </div>
-                            <div class="p-4 space-y-2 border-l-4 border-l-blue-600">
-                                <span class="font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded">N3 - Bueno</span>
-                                <p class="text-slate-600 font-medium">Aplica procedimientos estructurados de forma correcta y analiza problemas lógicos con dos variables.</p>
-                            </div>
-                            <div class="p-4 space-y-2 border-l-4 border-l-emerald-500">
-                                <span class="font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">N4 - Excelente</span>
-                                <p class="text-slate-600 font-medium">Evalúa de forma crítica, integra múltiples fuentes de datos y transfiere conocimientos a contextos inéditos.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm p-5 space-y-3">
-                        <span class="text-[9px] font-bold uppercase tracking-wider bg-purple-50 text-purple-700 px-2 py-0.5 rounded border border-purple-200">Muestra de Despliegue Específico</span>
-                        <h4 class="text-xs font-extrabold text-slate-900 uppercase">Ejemplo por Área Curricular - Humanidades (1er Semestre)</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 text-xs font-medium text-slate-600">
-                            <div class="p-3 bg-slate-50/50 rounded-xl border border-slate-100">
-                                <span class="block text-slate-400 font-bold text-[9px] uppercase">Nivel Insuficiente</span>
-                                <p class="text-slate-800 font-medium mt-1">Reconoce creencias y valores humanos básicos, pero no logra relacionarlos con contextos históricos o sociales.</p>
-                            </div>
-                            <div class="p-3 bg-slate-50/50 rounded-xl border border-slate-100">
-                                <span class="block text-slate-400 font-bold text-[9px] uppercase">Nivel Elemental</span>
-                                <p class="text-slate-800 font-medium mt-1">Comprende la existencia de normas y acciones éticas en situaciones personales y colectivas inmediatas.</p>
-                            </div>
-                            <div class="p-3 bg-slate-50/50 rounded-xl border border-slate-100">
-                                <span class="block text-slate-400 font-bold text-[9px] uppercase">Nivel Bueno</span>
-                                <p class="text-slate-800 font-medium mt-1">Infiere consecuencias lógicas del impacto de los valores éticos en el desarrollo de la vida social.</p>
-                            </div>
-                            <div class="p-3 bg-emerald-50/20 rounded-xl border border-emerald-100">
-                                <span class="block text-emerald-600 font-bold text-[9px] uppercase">Nivel Excelente</span>
-                                <p class="text-slate-900 font-bold mt-1">Evalúa críticamente la vigencia de normas éticas en distintos contextos culturales y temporales.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="mejora" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-emerald-600 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">X. Estrategias de Mejora por Área Crítica</h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-semibold">
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                            <div class="w-7 h-7 rounded bg-blue-50 text-institucional-800 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-calculator"></i></div>
-                            <h4 class="text-slate-900 uppercase text-[11px] font-bold">Pensamiento Matemático</h4>
-                            <p class="text-slate-500 font-medium text-[11px] leading-relaxed">Talleres semanales estructurados de resolución de problemas cotidianos; incorporación de plataformas digitales adaptativas (Khan Academy, Mathway).</p>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                            <div class="w-7 h-7 rounded bg-emerald-50 text-acento-verde flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-book"></i></div>
-                            <h4 class="text-slate-900 uppercase text-[11px] font-bold">Lectura y Redacción</h4>
-                            <p class="text-slate-500 font-medium text-[11px] leading-relaxed">Activación de clubes de lectura dirigida, producción estricta de textos académicos cortos y uso formal de rúbricas normalizadas de coevaluación por pares.</p>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                            <div class="w-7 h-7 rounded bg-orange-50 text-acento-naranja flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-language"></i></div>
-                            <h4 class="text-slate-900 uppercase text-[11px] font-bold">Idioma Inglés</h4>
-                            <p class="text-slate-500 font-medium text-[11px] leading-relaxed">Módulos de inmersión lingüística básica obligatoria (15 minutos diarios en aula), uso de Duolingo for Schools y ejercicios de listening interactivo.</p>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-                            <div class="w-7 h-7 rounded bg-purple-50 text-purple-700 flex items-center justify-center text-xs font-bold"><i class="fa-solid fa-flask"></i></div>
-                            <h4 class="text-slate-900 uppercase text-[11px] font-bold">Ciencias Naturales</h4>
-                            <p class="text-slate-500 font-medium text-[11px] leading-relaxed">Uso extendido de laboratorios virtuales simulados, desarrollo de proyectos transversales STEAM y aprendizaje basado en fenómenos naturales cotidianos.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="indicadores" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-blue-700 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">XI. Indicadores de Seguimiento y Control</h3>
-                    </div>
-
-                    <div class="print-card bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left border-collapse text-xs">
-                                <thead class="bg-slate-900 text-white font-bold uppercase tracking-wider text-[10px]">
-                                    <tr>
-                                        <th class="p-3">Indicador de Control</th>
-                                        <th class="p-3">Fórmula Matemática de Cálculo</th>
-                                        <th class="p-3 text-center">Meta Nominal</th>
-                                        <th class="p-3 text-right">Estatus Esperado</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="divide-y divide-slate-200 font-medium text-slate-700">
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-3 font-bold text-slate-900">Participación estudiantil</td>
-                                        <td class="p-3 font-mono text-slate-500">(Evaluados / Matriculados) × 100</td>
-                                        <td class="p-3 text-center font-bold text-emerald-600">≥95%</td>
-                                        <td class="p-3 text-right"><span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-bold text-[10px]">Crítico Institucional</span></td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-3 font-bold text-slate-900">Confiabilidad del examen</td>
-                                        <td class="p-3 text-slate-600 font-semibold">Coeficiente alfa de Cronbach </td>
-                                        <td class="p-3 text-center font-bold text-emerald-600">≥0.85</td>
-                                        <td class="p-3 text-right"><span class="px-2 py-0.5 rounded bg-blue-50 text-blue-700 font-bold text-[10px]">Estándar Downing</span></td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-3 font-bold text-slate-900">Mejora en matemáticas</td>
-                                        <td class="p-3 font-mono text-slate-500">(Promedio actual – promedio anterior) / promedio anterior</td>
-                                        <td class="p-3 text-center font-bold text-institucional-600">≥5%</td>
-                                        <td class="p-3 text-right"><span class="px-2 py-0.5 rounded bg-amber-50 text-acento-naranja font-bold text-[10px]">Meta de Logro</span></td>
-                                    </tr>
-                                    <tr class="hover:bg-slate-50 transition">
-                                        <td class="p-3 font-bold text-slate-900">Satisfacción docente de aceptación</td>
-                                        <td class="p-3 text-slate-600">Encuesta de control aplicada al total de aplicadores estatales</td>
-                                        <td class="p-3 text-center font-bold text-emerald-600">≥80% de aceptación</td>
-                                        <td class="p-3 text-right"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-bold text-[10px]">Aceptación Logística</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="no-print grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center">
-                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-4 w-full"><i class="fa-solid fa-chart-pie mr-1 text-blue-600"></i> Proyección de Distribución de Metas Cognitivas</h4>
-                            <div class="w-full max-w-[260px]"><canvas id="chartCognitivo"></canvas></div>
-                        </div>
-                        <div class="print-card bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center">
-                            <h4 class="text-xs font-extrabold text-slate-900 uppercase tracking-wider mb-4 w-full"><i class="fa-solid fa-chart-simple mr-1 text-emerald-500"></i> Simulación de Cumplimiento Mínimo de Metas por Subsistema</h4>
-                            <div class="w-full max-w-[260px]"><canvas id="chartMetas"></canvas></div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="recomendaciones" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-teal-600 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">XII. Recomendaciones Estratégicas Finales</h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-semibold text-slate-700">
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-blue-600"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">1. Rigor Metodológico Integrado</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Estandarizar de forma estricta todo el proceso evaluativo estatal con base en los principios psicométricos del modelo Downing.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-acento-verde"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">2. Transparencia Comunitaria</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Activar una supervisión en aula transparente mediante la incorporación de padres observadores previamente capacitados.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-acento-naranja"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">3. Mitigación de Riesgos Tecnológicos</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Garantizar una auditoría técnica previa que verifique el correcto acceso al correo institucional y plataforma de evaluación.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-blue-600"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">4. Simulacros de Control</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Garantizar la ejecución obligatoria de simulacros logísticos integrales previos a la jornada de aplicación oficial real en Durango.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-purple-600"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">5. Lenguaje Claro Directivo</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Asegurar la difusión oportuna de sábanas de resultados mediante un lenguaje directivo claro y estrictamente orientado a la mejora.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3">
-                            <div class="text-slate-700"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">6. Arbitraje Académico de Terceros</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Vincular al comité con universidades y organismos de educación superior para ejecutar validaciones externas del banco de reactivos.</p>
-                            </div>
-                        </div>
-                        <div class="print-card p-4 bg-white border border-slate-200 rounded-xl flex gap-3 md:col-span-2">
-                            <div class="text-emerald-600"><i class="fa-solid fa-circle-check text-base"></i></div>
-                            <div>
-                                <h5 class="text-slate-900 uppercase text-[10px] font-bold">7. Repositorio Abierto Homologado</h5>
-                                <p class="text-slate-500 font-medium mt-0.5">Consolidar el repositorio estatal de reactivos como una base de datos de consulta abierta y permanente para la totalidad de los subsistemas escolares de Durango.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="anexos" class="scroll-mt-24 space-y-6">
-                    <div class="flex items-center space-x-3">
-                        <div class="h-6 w-1 bg-slate-700 rounded-full"></div>
-                        <h3 class="text-lg font-extrabold text-slate-900 tracking-tight">XIII. Anexos (Estructura Propuesta)</h3>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs font-bold">
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-file-pdf text-red-600 text-sm"></i><span class="text-slate-800">Anexo A: Acta de Irregularidades</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-file-shield text-institucional-600 text-sm"></i><span class="text-slate-800">Anexo B: Control de Aplicación</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-user-tie text-purple-600 text-sm"></i><span class="text-slate-800">Anexo C: Guía del Coordinador</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-chalkboard-user text-acento-verde text-sm"></i><span class="text-slate-800">Anexo D: Guía del Docente</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-users text-acento-naranja text-sm"></i><span class="text-slate-800">Anexo E: Guía de Padres</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-table-cells text-blue-500 text-sm"></i><span class="text-slate-800">Anexo F: Tabla por Subsistema</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-calendar-days text-slate-600 text-sm"></i><span class="text-slate-800">Anexo G: Cronograma Plantel</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                        <div class="print-card bg-white border border-slate-200 p-3.5 rounded-xl flex items-center justify-between shadow-sm">
-                            <div class="flex items-center space-x-3"><i class="fa-solid fa-square-poll-horizontal text-teal-600 text-sm"></i><span class="text-slate-800">Anexo H: Informe Ejecutivo</span></div>
-                            <i class="fa-solid fa-download text-slate-300"></i>
-                        </div>
-                    </div>
-
-                    <div class="pt-8 border-t border-slate-200 text-center font-bold text-xs space-y-6">
-                        <p class="text-slate-400 uppercase tracking-widest text-[9px]">Validación Oficial de Emisión Documental</p>
-                        <div class="flex flex-col sm:flex-row justify-center items-center gap-8 text-slate-900">
-                            <div class="p-4 bg-white border border-slate-100 rounded-xl w-72 shadow-sm">
-                                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Emitido por:</span>
-                                <span class="block mt-1 font-extrabold text-xs">Subsecretaría de Educación Media Superior y Superior del Estado de Durango</span>
-                            </div>
-                            <div class="p-4 bg-white border border-slate-100 rounded-xl w-72 shadow-sm">
-                                <span class="block text-[10px] text-slate-400 font-semibold uppercase">Coordinación Operativa:</span>
-                                <span class="block mt-1 font-extrabold text-xs">Coordinación Estatal de Evaluación y Mejora Continua</span>
-                            </div>
-                        </div>
-                        <div class="text-[10px] text-slate-400 font-medium">
-                            Fecha formal de emisión del reporte ejecutivo: <span class="text-slate-700 font-bold font-mono">18 de mayo de 2026</span>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-        </main>
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-badge"><i class="fas fa-graduation-cap" style="color:white;font-size:0.8rem;"></i></div>
+      <div class="nav-logo-text"><span style="color:#93c5fd;">SEED</span> · Durango<br><span style="color:rgba(255,255,255,0.5)">EEE 2026-2027</span></div>
     </div>
+    <div class="nav-links">
+      <a class="nav-link" onclick="scrollToSection('presentacion')">Presentación</a>
+      <a class="nav-link" onclick="scrollToSection('normativo')">Normativo</a>
+      <a class="nav-link" onclick="scrollToSection('objetivos')">Objetivos</a>
+      <a class="nav-link" onclick="scrollToSection('downing')">Downing</a>
+      <a class="nav-link" onclick="scrollToSection('momentos')">Momentos</a>
+      <a class="nav-link" onclick="scrollToSection('especificaciones')">Especificaciones</a>
+      <a class="nav-link" onclick="scrollToSection('reactivos')">Reactivos</a>
+      <a class="nav-link" onclick="scrollToSection('cronograma')">Cronograma</a>
+      <a class="nav-link" onclick="scrollToSection('descriptores')">Descriptores</a>
+      <a class="nav-link" onclick="scrollToSection('mejora')">Mejora</a>
+      <a class="nav-link" onclick="scrollToSection('indicadores')">Indicadores</a>
+      <a class="nav-link" onclick="scrollToSection('recomendaciones')">Recomendaciones</a>
+      <a class="nav-link" onclick="scrollToSection('anexos')">Anexos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-nav btn-secondary" onclick="togglePresentation()"><i class="fas fa-desktop" style="margin-right:4px;"></i>Presentar</button>
+      <button class="btn-nav btn-secondary" onclick="expandAll()"><i class="fas fa-expand-alt" style="margin-right:4px;"></i>Expandir</button>
+      <button class="btn-nav btn-primary" onclick="window.print()"><i class="fas fa-download" style="margin-right:4px;"></i>PDF</button>
+    </div>
+  </div>
+</nav>
 
-    <script>
-        // CONTROL FLOTANTE DEL MENÚ RESPONSIVE EN MÓVILES
-        const sidebarToggle = document.getElementById('sidebarToggle');
-        const sidebar = document.getElementById('sidebar');
-        if(sidebarToggle && sidebar) {
-            sidebarToggle.addEventListener('click', () => {
-                sidebar.classList.toggle('-translate-x-full');
-            });
-        }
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-orb3"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <i class="fas fa-star" style="font-size:0.5rem;"></i>
+      Programa Educativo SEED · Ciclo 2026-2027
+    </div>
+    <h1 class="hero-title">
+      Estrategia Estatal de<br>
+      <span>Evaluación Estandarizada</span><br>
+      y Mejora Continua
+    </h1>
+    <p class="hero-sub">Para la Educación Media Superior en el Estado de Durango · Ciclo Escolar 2026-2027</p>
+    <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+      <div style="background:rgba(30,91,168,0.25);border:1px solid rgba(59,130,246,0.3);color:#93c5fd;font-size:0.65rem;font-weight:600;padding:0.35rem 0.8rem;border-radius:6px;display:flex;align-items:center;gap:0.3rem;"><i class="fas fa-building"></i> Subsecretaría EMS Durango</div>
+      <div style="background:rgba(22,163,74,0.2);border:1px solid rgba(34,197,94,0.3);color:#86efac;font-size:0.65rem;font-weight:600;padding:0.35rem 0.8rem;border-radius:6px;display:flex;align-items:center;gap:0.3rem;"><i class="fas fa-calendar-check"></i> Emisión: 18 mayo 2026</div>
+      <div style="background:rgba(234,88,12,0.2);border:1px solid rgba(249,115,22,0.3);color:#fdba74;font-size:0.65rem;font-weight:600;padding:0.35rem 0.8rem;border-radius:6px;display:flex;align-items:center;gap:0.3rem;"><i class="fas fa-chalkboard-teacher"></i> Coordinación Estatal de Evaluación</div>
+    </div>
+    <div class="hero-cards" style="margin:2rem auto 0;">
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(59,130,246,0.2);"><i class="fas fa-bullseye" style="color:#60a5fa;"></i></div>
+        <div class="hero-card-title">Objetivo General</div>
+        <div class="hero-card-text">Evaluación estandarizada estatal válida, confiable y equitativa para la mejora de EMS en Durango</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(34,197,94,0.2);"><i class="fas fa-map-marked-alt" style="color:#4ade80;"></i></div>
+        <div class="hero-card-title">Cobertura Estatal</div>
+        <div class="hero-card-text">Todos los subsistemas de Educación Media Superior del Estado de Durango</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(251,146,60,0.2);"><i class="fas fa-sitemap" style="color:#fb923c;"></i></div>
+        <div class="hero-card-title">Modelo Downing</div>
+        <div class="hero-card-text">Proceso de 12 pasos para validez y confiabilidad técnica de la prueba estandarizada</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-icon" style="background:rgba(167,139,250,0.2);"><i class="fas fa-chart-line" style="color:#c4b5fd;"></i></div>
+        <div class="hero-card-title">Mejora Continua</div>
+        <div class="hero-card-text">Transición de evaluación reactiva a cultura de mejora basada en evidencia y equidad</div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;display:flex;gap:0.8rem;justify-content:center;align-items:center;">
+      <button onclick="scrollToSection('presentacion')" style="background:linear-gradient(135deg,#1e5ba8,#3b82f6);color:white;border:none;padding:0.8rem 1.8rem;border-radius:10px;font-weight:700;font-size:0.82rem;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:0.02em;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''"">
+        <i class="fas fa-arrow-down" style="margin-right:0.4rem;"></i>Explorar Estrategia
+      </button>
+      <button onclick="window.print()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:0.8rem 1.8rem;border-radius:10px;font-weight:600;font-size:0.82rem;cursor:pointer;font-family:Montserrat,sans-serif;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.7)'">
+        <i class="fas fa-download" style="margin-right:0.4rem;"></i>Descargar PDF
+      </button>
+    </div>
+  </div>
+</section>
 
-        // CONTROL DINÁMICO DE PORCENTAJES EN EL MENÚ LATERAL SEGÚN SCROLL
-        const sections = document.querySelectorAll('section');
-        const navLnks = document.querySelectorAll('.nav-lnk');
-        const readProgress = document.getElementById('readProgress');
+<!-- ══════════════════════════ PRESENTACIÓN ══════════════════════════ -->
+<section id="presentacion" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-file-alt"></i> I. Presentación</div>
+      <h2 class="section-title">Contexto y Fundamentos</h2>
+      <div class="divider"></div>
+      <p class="section-desc">En el marco del Programa Educativo SEED, la Evaluación Estandarizada Estatal se consolida como instrumento clave para diagnosticar, monitorear y elevar la calidad educativa en el nivel medio superior.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;" class="fade-in stagger-1">
+      <div>
+        <div style="background:linear-gradient(135deg,#0a1628,#1a3a6c);border-radius:16px;padding:2rem;color:white;">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.7rem;">Eje del Programa SEED</div>
+          <div style="font-size:1rem;font-weight:800;margin-bottom:1rem;line-height:1.4;">"Mejora de los aprendizajes fundamentales y prioritarios"</div>
+          <p style="font-size:0.8rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:1rem;">La Evaluación Estandarizada Estatal se presenta como un esfuerzo coordinado entre subsistemas, docentes, directivos y familias.</p>
+          <div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:1rem;border-left:3px solid #60a5fa;">
+            <div style="font-size:0.72rem;font-weight:700;color:#93c5fd;margin-bottom:0.3rem;">Visión estratégica</div>
+            <div style="font-size:0.78rem;color:rgba(255,255,255,0.8);line-height:1.5;">Transitar de una <strong style="color:#4ade80;">evaluación reactiva</strong> a una <strong style="color:#4ade80;">cultura de mejora continua</strong>, basada en evidencia, participación colegiada y equidad educativa.</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.8rem;">
+        <div style="background:white;border-radius:14px;border:1px solid #e2e8f0;padding:1.2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:44px;height:44px;background:rgba(30,91,168,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-gavel" style="color:#1e5ba8;font-size:1rem;"></i></div>
+          <div><div style="font-size:0.78rem;font-weight:700;color:#0a1628;">Fundamento Constitucional</div><div style="font-size:0.72rem;color:#64748b;">Art. 3° CPEUM — Derecho a educación con calidad y equidad</div></div>
+        </div>
+        <div style="background:white;border-radius:14px;border:1px solid #e2e8f0;padding:1.2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:44px;height:44px;background:rgba(22,163,74,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-book-open" style="color:#16a34a;font-size:1rem;"></i></div>
+          <div><div style="font-size:0.78rem;font-weight:700;color:#0a1628;">Ley General de Educación</div><div style="font-size:0.72rem;color:#64748b;">Evaluación como parte integral del proceso educativo</div></div>
+        </div>
+        <div style="background:white;border-radius:14px;border:1px solid #e2e8f0;padding:1.2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:44px;height:44px;background:rgba(234,88,12,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-landmark" style="color:#ea580c;font-size:1rem;"></i></div>
+          <div><div style="font-size:0.78rem;font-weight:700;color:#0a1628;">Ley Estatal de Educación Durango</div><div style="font-size:0.72rem;color:#64748b;">Atribuciones estatales en evaluación educativa</div></div>
+        </div>
+        <div style="background:white;border-radius:14px;border:1px solid #e2e8f0;padding:1.2rem;display:flex;align-items:center;gap:1rem;">
+          <div style="width:44px;height:44px;background:rgba(124,58,237,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-university" style="color:#7c3aed;font-size:1rem;"></i></div>
+          <div><div style="font-size:0.78rem;font-weight:700;color:#0a1628;">Actores Involucrados</div><div style="font-size:0.72rem;color:#64748b;">Subsistemas · Docentes · Directivos · Familias</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        window.addEventListener('scroll', () => {
-            // 1. Cálculo de la barra superior de progreso absoluto
-            const totalScrollable = document.documentElement.scrollHeight - window.innerHeight;
-            if (totalScrollable > 0) {
-                const globalPct = (window.pageYOffset / totalScrollable) * 100;
-                readProgress.style.width = `${globalPct}%`;
-            }
+<!-- ══════════════════════════ MARCO NORMATIVO ══════════════════════════ -->
+<section id="normativo" class="section" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-balance-scale"></i> II. Marco Normativo</div>
+      <h2 class="section-title">Marco Normativo de Referencia</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Fundamentos legales e institucionales que sustentan la estrategia de evaluación estandarizada.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;" class="fade-in stagger-1">
+      <div>
+        <div class="norma-card">
+          <div class="norma-icon"><i class="fas fa-flag-checkered"></i></div>
+          <div><div class="norma-title">Constitución Política de los Estados Unidos Mexicanos (Art. 3°)</div><div class="norma-desc">Derecho a la educación con calidad y equidad</div></div>
+        </div>
+        <div class="norma-card" style="border-left-color:#16a34a;">
+          <div class="norma-icon" style="background:rgba(22,163,74,0.08);color:#16a34a;"><i class="fas fa-book"></i></div>
+          <div><div class="norma-title">Ley General de Educación</div><div class="norma-desc">Evaluación como parte del proceso educativo</div></div>
+        </div>
+        <div class="norma-card" style="border-left-color:#ea580c;">
+          <div class="norma-icon" style="background:rgba(234,88,12,0.08);color:#ea580c;"><i class="fas fa-map"></i></div>
+          <div><div class="norma-title">Ley General de Educación del Estado de Durango</div><div class="norma-desc">Atribuciones estatales en evaluación educativa</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="norma-card" style="border-left-color:#7c3aed;">
+          <div class="norma-icon" style="background:rgba(124,58,237,0.08);color:#7c3aed;"><i class="fas fa-file-contract"></i></div>
+          <div><div class="norma-title">Lineamientos </div><div class="norma-desc">Aplicación, control y difusión del examen semestral</div></div>
+        </div>
+        <div class="norma-card" style="border-left-color:#0891b2;">
+          <div class="norma-icon" style="background:rgba(6,182,212,0.08);color:#0891b2;"><i class="fas fa-graduation-cap"></i></div>
+          <div><div class="norma-title">Modelo Educativo 2025 (EMS)</div><div class="norma-desc">Enfoque competencial y humanista</div></div>
+        </div>
+        <div class="norma-card" style="border-left-color:#b45309;">
+          <div class="norma-icon" style="background:rgba(180,83,9,0.08);color:#b45309;"><i class="fas fa-microscope"></i></div>
+          <div><div class="norma-title">Proceso de 12 pasos de Steven M. Downing</div><div class="norma-desc">Validez y confiabilidad técnica de la prueba</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // 2. Cálculo individual de visualización por sección para los badges del menú lateral
-            let currentActiveId = 'hero';
-            sections.forEach(sec => {
-                const topOffset = sec.offsetTop - 150;
-                const secHeight = sec.offsetHeight;
-                const scrollPos = window.pageYOffset;
-                const badge = document.getElementById(`ind-${sec.id}`);
+<!-- ══════════════════════════ OBJETIVOS ══════════════════════════ -->
+<section id="objetivos" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-bullseye"></i> III. Objetivos Estratégicos</div>
+      <h2 class="section-title">Objetivos y Propósito</h2>
+      <div class="divider"></div>
+    </div>
+    <!-- Objetivo General -->
+    <div style="background:linear-gradient(135deg,#0a1628 0%,#1a3a6c 100%);border-radius:20px;padding:2rem;margin-bottom:2rem;" class="fade-in">
+      <div style="font-size:0.62rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem;">Objetivo General</div>
+      <p style="font-size:1rem;font-weight:600;color:white;line-height:1.6;max-width:800px;">Implementar una <span style="color:#60a5fa;">evaluación estandarizada estatal</span> válida, confiable y equitativa, que sirva como referente para la mejora de la enseñanza y el aprendizaje en la educación media superior del Estado de Durango.</p>
+    </div>
+    <!-- Objetivos Específicos -->
+    <h3 style="font-size:0.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;" class="fade-in">Objetivos Específicos</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;" class="fade-in stagger-1">
+      <div class="obj-card">
+        <div class="obj-num">01</div>
+        <div class="obj-chip" style="background:rgba(30,91,168,0.1);color:#1e5ba8;border:1px solid rgba(30,91,168,0.2);">Diagnóstico</div>
+        <div class="card-title">Diagnosticar Dominio</div>
+        <div class="card-text">Nivel de dominio en Lengua, Matemáticas, Ciencias Sociales, Naturales, Humanidades, Cultura Digital e Inglés</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">02</div>
+        <div class="obj-chip" style="background:rgba(22,163,74,0.1);color:#16a34a;border:1px solid rgba(22,163,74,0.2);">Estandarización</div>
+        <div class="card-title">Estandarizar Procesos</div>
+        <div class="card-text">Diseño, aplicación y análisis de resultados con base en el modelo Downing de 12 pasos</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">03</div>
+        <div class="obj-chip" style="background:rgba(234,88,12,0.1);color:#ea580c;border:1px solid rgba(234,88,12,0.2);">Participación</div>
+        <div class="card-title">Fortalecer Participación</div>
+        <div class="card-text">Docentes, directivos y padres de familia como observadores y gestores de mejora institucional</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">04</div>
+        <div class="obj-chip" style="background:rgba(124,58,237,0.1);color:#7c3aed;border:1px solid rgba(124,58,237,0.2);">Equidad</div>
+        <div class="card-title">Reducir Brechas</div>
+        <div class="card-text">Entre subsistemas y al interior de planteles mediante estrategias diferenciadas de intervención</div>
+      </div>
+      <div class="obj-card">
+        <div class="obj-num">05</div>
+        <div class="obj-chip" style="background:rgba(6,182,212,0.1);color:#0891b2;border:1px solid rgba(6,182,212,0.2);">Banco</div>
+        <div class="card-title">Generar Reactivos</div>
+        <div class="card-text">Banco de reactivos validados estadísticamente para su reutilización en futuras aplicaciones</div>
+      </div>
+    </div>
+    <!-- Propósito -->
+    <div style="margin-top:2.5rem;" class="fade-in stagger-2">
+      <h3 style="font-size:0.8rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">Propósito de la Evaluación</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.8rem;">
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;display:flex;align-items:flex-start;gap:0.7rem;">
+          <div style="width:32px;height:32px;background:rgba(30,91,168,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-chart-bar" style="color:#1e5ba8;font-size:0.8rem;"></i></div>
+          <div style="font-size:0.77rem;color:#334155;line-height:1.5;">Valorar cuantitativamente el logro por asignatura y subsistema</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;display:flex;align-items:flex-start;gap:0.7rem;">
+          <div style="width:32px;height:32px;background:rgba(22,163,74,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-search" style="color:#16a34a;font-size:0.8rem;"></i></div>
+          <div style="font-size:0.77rem;color:#334155;line-height:1.5;">Detectar áreas de oportunidad en los procesos de enseñanza-aprendizaje</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;display:flex;align-items:flex-start;gap:0.7rem;">
+          <div style="width:32px;height:32px;background:rgba(234,88,12,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-compass" style="color:#ea580c;font-size:0.8rem;"></i></div>
+          <div style="font-size:0.77rem;color:#334155;line-height:1.5;">Orientar la planeación didáctica y estrategias de intervención</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;display:flex;align-items:flex-start;gap:0.7rem;">
+          <div style="width:32px;height:32px;background:rgba(124,58,237,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-eye" style="color:#7c3aed;font-size:0.8rem;"></i></div>
+          <div style="font-size:0.77rem;color:#334155;line-height:1.5;">Fomentar cultura de transparencia, mejora continua y rendición de cuentas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                if (scrollPos >= topOffset && scrollPos < (topOffset + secHeight)) {
-                    currentActiveId = sec.id;
-                    // Cálculo aproximado del avance interno de la sección en pantalla
-                    let innerProgress = Math.round(((scrollPos - topOffset) / secHeight) * 100);
-                    if(innerProgress > 100) innerProgress = 100;
-                    if(innerProgress < 0) innerProgress = 0;
-                    if(badge) badge.innerText = `${innerProgress}%`;
-                } else if (scrollPos >= (topOffset + secHeight)) {
-                    if(badge) badge.innerText = '100%';
-                } else {
-                    if(badge) badge.innerText = '0%';
-                }
-            });
+<!-- ══════════════════════════ MODELO DOWNING ══════════════════════════ -->
+<section id="downing" class="section" style="background:#f0f4f9;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-project-diagram"></i> IV. Modelo Técnico</div>
+      <h2 class="section-title">Proceso de 12 Pasos Downing</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Modelo técnico de referencia para la construcción de evaluaciones válidas y confiables, adaptado para la EMS en Durango.</p>
+    </div>
+    <div class="downing-grid fade-in">
+      <!-- FASE FUNDAMENTO -->
+      <div class="downing-card" style="border-top:3px solid #1e5ba8;">
+        <div class="downing-num" style="background:rgba(30,91,168,0.1);color:#1e5ba8;">Paso 1 · Fundamento</div>
+        <div class="downing-fase">Fase: Fundamento</div>
+        <div class="downing-title">Propósito</div>
+        <div class="downing-desc">Evaluación diagnóstica y formativa estatal. Define el para qué de la prueba.</div>
+        <i class="fas fa-flag downing-icon" style="color:#1e5ba8;"></i>
+      </div>
+      <div class="downing-card" style="border-top:3px solid #1e5ba8;">
+        <div class="downing-num" style="background:rgba(30,91,168,0.1);color:#1e5ba8;">Paso 2 · Fundamento</div>
+        <div class="downing-fase">Fase: Fundamento</div>
+        <div class="downing-title">Constructo</div>
+        <div class="downing-desc">Definición de competencias por área. Marco teórico y conceptual de la prueba.</div>
+        <i class="fas fa-layer-group downing-icon" style="color:#1e5ba8;"></i>
+      </div>
+      <!-- FASE DISEÑO -->
+      <div class="downing-card" style="border-top:3px solid #7c3aed;">
+        <div class="downing-num" style="background:rgba(124,58,237,0.1);color:#7c3aed;">Paso 3 · Diseño</div>
+        <div class="downing-fase">Fase: Diseño</div>
+        <div class="downing-title">Tabla de Especificaciones</div>
+        <div class="downing-desc">Por asignatura, ponderación y nivel cognitivo. Blueprint de la prueba.</div>
+        <i class="fas fa-table downing-icon" style="color:#7c3aed;"></i>
+      </div>
+      <!-- FASE CONSTRUCCIÓN -->
+      <div class="downing-card" style="border-top:3px solid #ea580c;">
+        <div class="downing-num" style="background:rgba(234,88,12,0.1);color:#ea580c;">Paso 4 · Construcción</div>
+        <div class="downing-fase">Fase: Construcción</div>
+        <div class="downing-title">Creación de Reactivos</div>
+        <div class="downing-desc">Comité CAER estatal — Comité Académico de Elaboración de Reactivos.</div>
+        <i class="fas fa-pencil-alt downing-icon" style="color:#ea580c;"></i>
+      </div>
+      <div class="downing-card" style="border-top:3px solid #ea580c;">
+        <div class="downing-num" style="background:rgba(234,88,12,0.1);color:#ea580c;">Paso 5 · Construcción</div>
+        <div class="downing-fase">Fase: Construcción</div>
+        <div class="downing-title">Validación de Contenido</div>
+        <div class="downing-desc">Revisión por expertos y editores. Garantía de alineación curricular.</div>
+        <i class="fas fa-check-double downing-icon" style="color:#ea580c;"></i>
+      </div>
+      <!-- FASE PRUEBA -->
+      <div class="downing-card" style="border-top:3px solid #16a34a;">
+        <div class="downing-num" style="background:rgba(22,163,74,0.1);color:#16a34a;">Paso 6 · Prueba</div>
+        <div class="downing-fase">Fase: Prueba</div>
+        <div class="downing-title">Pilotaje</div>
+        <div class="downing-desc">Muestra representativa por subsistema. Aplicación controlada para análisis.</div>
+        <i class="fas fa-vial downing-icon" style="color:#16a34a;"></i>
+      </div>
+      <div class="downing-card" style="border-top:3px solid #16a34a;">
+        <div class="downing-num" style="background:rgba(22,163,74,0.1);color:#16a34a;">Paso 7 · Prueba</div>
+        <div class="downing-fase">Fase: Prueba</div>
+        <div class="downing-title">Análisis Estadístico</div>
+        <div class="downing-desc">Dificultad y discriminación. Índices psicométricos por reactivo.</div>
+        <i class="fas fa-chart-area downing-icon" style="color:#16a34a;"></i>
+      </div>
+      <div class="downing-card" style="border-top:3px solid #16a34a;">
+        <div class="downing-num" style="background:rgba(22,163,74,0.1);color:#16a34a;">Paso 8 · Prueba</div>
+        <div class="downing-fase">Fase: Prueba</div>
+        <div class="downing-title">Selección de Reactivos</div>
+        <div class="downing-desc">Banco estatal de reactivos. Selección con base en criterios estadísticos.</div>
+        <i class="fas fa-filter downing-icon" style="color:#16a34a;"></i>
+      </div>
+      <!-- FASE PRODUCCIÓN -->
+      <div class="downing-card" style="border-top:3px solid #0891b2;">
+        <div class="downing-num" style="background:rgba(6,182,212,0.1);color:#0891b2;">Paso 9 · Producción</div>
+        <div class="downing-fase">Fase: Producción</div>
+        <div class="downing-title">Ensamblaje</div>
+        <div class="downing-desc">Versiones Digital e Impresa. Integración final del instrumento.</div>
+        <i class="fas fa-puzzle-piece downing-icon" style="color:#0891b2;"></i>
+      </div>
+      <div class="downing-card" style="border-top:3px solid #0891b2;">
+        <div class="downing-num" style="background:rgba(6,182,212,0.1);color:#0891b2;">Paso 10 · Producción</div>
+        <div class="downing-fase">Fase: Producción</div>
+        <div class="downing-title">Estandarización Logística</div>
+        <div class="downing-desc">Tiempo, dispositivos, plataforma y recursos para la aplicación.</div>
+        <i class="fas fa-cogs downing-icon" style="color:#0891b2;"></i>
+      </div>
+      <!-- FASE APLICACIÓN -->
+      <div class="downing-card" style="border-top:3px solid #b45309;">
+        <div class="downing-num" style="background:rgba(180,83,9,0.1);color:#b45309;">Paso 11 · Aplicación</div>
+        <div class="downing-fase">Fase: Aplicación</div>
+        <div class="downing-title">Aplicación Estatal</div>
+        <div class="downing-desc">Fecha única por ciclo escolar. Aplicación oficial: 9-13 noviembre 2026.</div>
+        <i class="fas fa-calendar-check downing-icon" style="color:#b45309;"></i>
+      </div>
+      <!-- FASE CIERRE -->
+      <div class="downing-card" style="border-top:3px solid #dc2626;">
+        <div class="downing-num" style="background:rgba(220,38,38,0.1);color:#dc2626;">Paso 12 · Cierre</div>
+        <div class="downing-fase">Fase: Cierre</div>
+        <div class="downing-title">Calificación y Reporte</div>
+        <div class="downing-desc">Cuadro de mando integral por subsistema. Reportes ejecutivos a autoridades.</div>
+        <i class="fas fa-chart-pie downing-icon" style="color:#dc2626;"></i>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Cambiar estilos de enfoque en el menú lateral de forma reactiva
-            navLnks.forEach(lnk => {
-                lnk.classList.remove('text-white', 'bg-institucional-800', 'border-l-4', 'border-institucional-600');
-                lnk.classList.add('text-slate-400', 'hover:bg-slate-800', 'hover:text-white');
-                if (lnk.getAttribute('href') === `#${currentActiveId}`) {
-                    lnk.classList.add('text-white', 'bg-institucional-800', 'border-l-4', 'border-institucional-600');
-                    lnk.classList.remove('text-slate-400', 'hover:bg-slate-800');
-                }
-            });
-        });
+<!-- ══════════════════════════ MOMENTOS ══════════════════════════ -->
+<section id="momentos" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-clock"></i> V. Estrategia por Momentos</div>
+      <h2 class="section-title">Desarrollo de la Estrategia</h2>
+      <div class="divider"></div>
+    </div>
+    <!-- ANTES -->
+    <div class="fade-in" style="margin-bottom:2.5rem;">
+      <div class="momento-header" style="background:linear-gradient(135deg,rgba(30,91,168,0.08),rgba(59,130,246,0.05));border:1px solid rgba(30,91,168,0.15);">
+        <div style="width:44px;height:44px;background:#1e5ba8;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-hourglass-start" style="color:white;"></i></div>
+        <div>
+          <span class="momento-badge" style="background:rgba(30,91,168,0.15);color:#1e5ba8;">Antes</span>
+          <div style="font-size:1rem;font-weight:700;color:#0a1628;">Antes de la Aplicación</div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0;">
+        <table class="momento-table" style="width:100%;">
+          <thead><tr><th>Actividad</th><th>Descripción</th><th>Responsable</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Socialización</strong></td><td>Reuniones informativas a estudiantes, docentes y padres</td><td>Autoridad del Subsistema y Director del plantel</td></tr>
+            <tr><td><strong>Capacitación</strong></td><td>Taller para aplicadores y observadores</td><td>Comité definido en Subsistema</td></tr>
+            <tr><td><strong>Simulacro</strong></td><td>Acceso a plataforma con correo institucional</td><td>Coordinador de aplicación</td></tr>
+            <tr><td><strong>Verificación técnica</strong></td><td>Dispositivos, conectividad, tiempo</td><td>Docente aplicador</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- DURANTE -->
+    <div class="fade-in stagger-2" style="margin-bottom:2.5rem;">
+      <div class="momento-header" style="background:linear-gradient(135deg,rgba(22,163,74,0.08),rgba(34,197,94,0.05));border:1px solid rgba(22,163,74,0.15);">
+        <div style="width:44px;height:44px;background:#16a34a;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-hourglass-half" style="color:white;"></i></div>
+        <div>
+          <span class="momento-badge" style="background:rgba(22,163,74,0.15);color:#16a34a;">Durante</span>
+          <div style="font-size:1rem;font-weight:700;color:#0a1628;">Durante la Aplicación</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.8rem;">
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;text-align:center;">
+          <div style="font-size:1.8rem;font-weight:900;color:#1e5ba8;font-family:'Crimson Pro',serif;">90</div>
+          <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;">Minutos</div>
+          <div style="font-size:0.72rem;color:#334155;margin-top:0.3rem;">Por evaluación</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Acceso</div>
+          <div style="font-size:0.78rem;color:#334155;font-weight:600;">Solo con correo institucional</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Supervisión</div>
+          <div style="font-size:0.78rem;color:#334155;font-weight:600;">Docente aplicador + padre observador</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Mat. Prohibidos</div>
+          <div style="font-size:0.78rem;color:#334155;font-weight:600;">Celulares, libros, apuntes</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Retraso</div>
+          <div style="font-size:0.78rem;color:#334155;font-weight:600;">Máximo 1 hora sin tiempo extra</div>
+        </div>
+        <div style="background:white;border-radius:12px;border:1px solid #e2e8f0;padding:1rem;">
+          <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem;">Inasistencia Just.</div>
+          <div style="font-size:0.78rem;color:#334155;font-weight:600;">Fallecimiento, hospitalización, gravidez</div>
+        </div>
+      </div>
+    </div>
+    <!-- DESPUÉS -->
+    <div class="fade-in stagger-3">
+      <div class="momento-header" style="background:linear-gradient(135deg,rgba(234,88,12,0.08),rgba(249,115,22,0.05));border:1px solid rgba(234,88,12,0.15);">
+        <div style="width:44px;height:44px;background:#ea580c;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-hourglass-end" style="color:white;"></i></div>
+        <div>
+          <span class="momento-badge" style="background:rgba(234,88,12,0.15);color:#ea580c;">Después</span>
+          <div style="font-size:1rem;font-weight:700;color:#0a1628;">Después de la Aplicación</div>
+        </div>
+      </div>
+      <div style="overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0;">
+        <table class="momento-table" style="width:100%;">
+          <thead><tr><th>Actividad</th><th>Descripción</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Análisis colegiado</strong></td><td>Por academia y por plantel</td></tr>
+            <tr><td><strong>Elaboración de diagnóstico</strong></td><td>Basado en resultados por área y nivel</td></tr>
+            <tr><td><strong>Diseño de estrategias de mejora</strong></td><td>Por subsistema y por plantel</td></tr>
+            <tr><td><strong>Canalización</strong></td><td>Estudiantes en riesgo de reprobación o deserción</td></tr>
+            <tr><td><strong>Difusión de resultados</strong></td><td>A estudiantes, docentes y padres</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // UTILIDAD 1: MODO EXPANDIR LAYOUT A PANTALLA COMPLETA
-        let isExpandedLayout = false;
-        function toggleExpandLayout() {
-            const container = document.getElementById('contentContainer');
-            const layoutBtn = document.getElementById('layoutBtn');
-            isExpandedLayout = !isExpandedLayout;
+<!-- ══════════════════════════ TABLA DE ESPECIFICACIONES ══════════════════════════ -->
+<section id="especificaciones" class="section" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-table"></i> VI. Especificaciones</div>
+      <h2 class="section-title">Tabla de Especificaciones</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Ejemplo por área: Pensamiento Matemático — 2° Semestre. Define la distribución de reactivos por contenido, nivel cognitivo y ponderación.</p>
+    </div>
+    <div style="background:white;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden;" class="fade-in">
+      <div style="padding:1rem 1.5rem;background:linear-gradient(135deg,#0a1628,#1a3a6c);display:flex;align-items:center;gap:0.8rem;">
+        <div style="width:40px;height:40px;background:rgba(255,255,255,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;"><i class="fas fa-square-root-alt" style="color:white;"></i></div>
+        <div><div style="color:white;font-weight:700;font-size:0.88rem;">Pensamiento Matemático</div><div style="color:rgba(255,255,255,0.6);font-size:0.68rem;">2° Semestre · 25 reactivos · 90 minutos</div></div>
+        <div style="margin-left:auto;display:flex;gap:0.5rem;">
+          <span style="background:rgba(255,255,255,0.15);color:white;font-size:0.62rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:6px;">25 Reactivos</span>
+          <span style="background:rgba(34,197,94,0.3);color:#4ade80;font-size:0.62rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:6px;">100% Ponderado</span>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table class="espec-table" style="width:100%;">
+          <thead>
+            <tr>
+              <th style="border-radius:0;">Contenido Formativo</th>
+              <th>Indicador Cognitivo</th>
+              <th>Nivel Cognitivo</th>
+              <th>N° Reactivos</th>
+              <th>Ponderación</th>
+              <th>Distribución</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Operaciones básicas con enteros</strong></td>
+              <td>Resuelve problemas directos</td>
+              <td><span class="nivel-badge n1-badge"><i class="fas fa-circle" style="font-size:0.4rem;"></i> N1 — Recordar</span></td>
+              <td style="text-align:center;font-weight:700;">5</td>
+              <td style="font-weight:700;color:#dc2626;">20%</td>
+              <td><div class="progress-bar-cell"><div class="progress-fill" style="width:20%;background:#ef4444;"></div></div></td>
+            </tr>
+            <tr>
+              <td><strong>Fracciones y porcentajes</strong></td>
+              <td>Aplica procedimientos</td>
+              <td><span class="nivel-badge n2-badge"><i class="fas fa-circle" style="font-size:0.4rem;"></i> N2 — Comprender</span></td>
+              <td style="text-align:center;font-weight:700;">6</td>
+              <td style="font-weight:700;color:#c2410c;">24%</td>
+              <td><div class="progress-bar-cell"><div class="progress-fill" style="width:24%;background:#f97316;"></div></div></td>
+            </tr>
+            <tr>
+              <td><strong>Ecuaciones lineales</strong></td>
+              <td>Transforma modelos algebraicos</td>
+              <td><span class="nivel-badge n3-badge"><i class="fas fa-circle" style="font-size:0.4rem;"></i> N3 — Aplicar</span></td>
+              <td style="text-align:center;font-weight:700;">5</td>
+              <td style="font-weight:700;color:#15803d;">20%</td>
+              <td><div class="progress-bar-cell"><div class="progress-fill" style="width:20%;background:#22c55e;"></div></div></td>
+            </tr>
+            <tr>
+              <td><strong>Geometría básica</strong></td>
+              <td>Analiza relaciones espaciales</td>
+              <td><span class="nivel-badge n4-badge"><i class="fas fa-circle" style="font-size:0.4rem;"></i> N4 — Analizar</span></td>
+              <td style="text-align:center;font-weight:700;">4</td>
+              <td style="font-weight:700;color:#1e40af;">16%</td>
+              <td><div class="progress-bar-cell"><div class="progress-fill" style="width:16%;background:#3b82f6;"></div></div></td>
+            </tr>
+            <tr>
+              <td><strong>Sucesiones y gráficas</strong></td>
+              <td>Extrae información de tablas</td>
+              <td><span class="nivel-badge n5-badge"><i class="fas fa-circle" style="font-size:0.4rem;"></i> N5 — Evaluar</span></td>
+              <td style="text-align:center;font-weight:700;">5</td>
+              <td style="font-weight:700;color:#6d28d9;">20%</td>
+              <td><div class="progress-bar-cell"><div class="progress-fill" style="width:20%;background:#8b5cf6;"></div></div></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr style="background:#f8fafc;">
+              <td colspan="3" style="font-weight:800;font-size:0.8rem;color:#0a1628;padding:1rem;"><i class="fas fa-sigma" style="margin-right:0.3rem;"></i>TOTAL</td>
+              <td style="text-align:center;font-weight:900;font-size:1rem;color:#1e5ba8;padding:1rem;">25</td>
+              <td style="font-weight:900;font-size:1rem;color:#1e5ba8;padding:1rem;">100%</td>
+              <td style="padding:1rem;"><span style="font-size:0.68rem;color:#64748b;font-style:italic;">Tiempo estimado: 90 min.</span></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+    <!-- Chart de distribución -->
+    <div style="margin-top:2rem;background:white;border-radius:16px;border:1px solid #e2e8f0;padding:1.5rem;" class="fade-in stagger-2">
+      <h3 style="font-size:0.78rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.2rem;">Distribución Visual por Nivel Cognitivo</h3>
+      <div style="max-width:500px;margin:0 auto;">
+        <canvas id="especChart" height="220"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
 
-            if(isExpandedLayout) {
-                container.classList.remove('max-w-6xl');
-                container.classList.add('max-w-none', 'px-10');
-                layoutBtn.innerHTML = '<i class="fa-solid fa-minimize"></i> <span class="hidden md:inline">Vista Compacta</span>';
-            } else {
-                container.classList.remove('max-w-none', 'px-10');
-                container.classList.add('max-w-6xl');
-                layoutBtn.innerHTML = '<i class="fa-solid fa-maximize"></i> <span class="hidden md:inline">Expandir Secciones</span>';
-            }
-        }
+<!-- ══════════════════════════ REPOSITORIO ══════════════════════════ -->
+<section id="reactivos" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-database"></i> VII. Repositorio</div>
+      <h2 class="section-title">Repositorio de Reactivos</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Formato sugerido para el banco estatal de reactivos. Ejemplo ilustrativo del sistema de catalogación.</p>
+    </div>
+    <div class="fade-in">
+      <div class="reactivo-table-wrap">
+        <table class="reactivo-table">
+          <thead>
+            <tr>
+              <th>ID Reactivo</th>
+              <th>Clave</th>
+              <th>Materia</th>
+              <th>Área Conocimiento</th>
+              <th>Contenido Formativo</th>
+              <th>Indicador Cognitivo</th>
+              <th>Nivel</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color:#1e5ba8;">R001</strong></td>
+              <td><span class="chip chip-mat">MAT202</span></td>
+              <td>Matemáticas</td>
+              <td>Pensamiento matemático</td>
+              <td>Ecuaciones lineales</td>
+              <td>Resuelve problemas cotidianos</td>
+              <td><span class="nivel-badge n3-badge">N3</span></td>
+              <td><span class="chip chip-type">Opción múltiple</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:1.2rem;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;overflow:hidden;">
+        <div style="padding:0.6rem 1rem;background:#1a3a6c;"><span style="color:white;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">Banco de reactivos — Ejemplo de ítem</span></div>
+        <table class="reactivo-table">
+          <thead>
+            <tr>
+              <th>Reactivo</th>
+              <th>Opción A</th>
+              <th>Opción B</th>
+              <th>Opción C</th>
+              <th>Opción D</th>
+              <th>Correcta</th>
+              <th>Tiempo (s)</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="font-weight:600;font-style:italic;">Si x + 3 = 10, ¿cuánto vale x?</td>
+              <td>5</td>
+              <td>6</td>
+              <td><strong style="color:#16a34a;">7</strong></td>
+              <td>8</td>
+              <td><span style="background:rgba(22,163,74,0.15);color:#16a34a;font-weight:800;padding:0.2rem 0.5rem;border-radius:4px;">C</span></td>
+              <td>45</td>
+              <td><span class="chip chip-valid">Válido</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // UTILIDAD 2: MODO PRESENTACIÓN DIRECTIVA DE ALTO IMPACTO
-        let isPresentationMode = false;
-        function togglePresentationMode() {
-            const container = document.getElementById('contentContainer');
-            const presentationBtn = document.getElementById('presentationBtn');
-            isPresentationMode = !isPresentationMode;
+<!-- ══════════════════════════ CRONOGRAMA ══════════════════════════ -->
+<section id="cronograma" class="section" style="background:#f0f4f9;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-calendar-alt"></i> VIII. Cronograma</div>
+      <h2 class="section-title">Cronograma de Actividades 2026-2027</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;" class="fade-in">
+      <div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#1e5ba8;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Junio — Julio 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Diseño y validación de tabla de descriptores</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#7c3aed;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Agosto 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Diseño y validación de tabla de especificaciones</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#0891b2;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Agosto — Septiembre 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Diseño de estrategias por subsistema</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#ea580c;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Septiembre 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Validación de reactivos (CAER)</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#16a34a;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">1ª Semana de Octubre 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Pilotaje estatal</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#dc2626;box-shadow:0 0 0 4px rgba(220,38,38,0.2);"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date" style="color:#dc2626;">9 al 13 de Noviembre 2026</div>
+            <div class="crono-card-wrap" style="border-color:rgba(220,38,38,0.3);border-left:3px solid #dc2626;"><div class="crono-activity" style="color:#dc2626;"><i class="fas fa-star" style="margin-right:0.3rem;font-size:0.7rem;"></i>Aplicación oficial estatal</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#0891b2;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Diciembre 2026</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Análisis de resultados</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#1e5ba8;"></div><div class="crono-connector"></div></div>
+          <div class="crono-body">
+            <div class="crono-date">Enero 2027</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Emisión de reportes por subsistema</div></div>
+          </div>
+        </div>
+        <div class="crono-item">
+          <div class="crono-line"><div class="crono-dot" style="background:#16a34a;"></div></div>
+          <div class="crono-body" style="padding-bottom:0;">
+            <div class="crono-date">Febrero — Junio 2027</div>
+            <div class="crono-card-wrap"><div class="crono-activity">Estrategias de mejora por plantel</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            if(isPresentationMode) {
-                container.classList.add('presentation-view');
-                presentationBtn.innerHTML = '<i class="fa-solid fa-rectangle-xmark"></i> <span class="hidden md:inline">Salir Modo Pres.</span>';
-                presentationBtn.classList.replace('bg-blue-50', 'bg-orange-50');
-                presentationBtn.classList.replace('text-institucional-800', 'text-acento-naranja');
-            } else {
-                container.classList.remove('presentation-view');
-                presentationBtn.innerHTML = '<i class="fa-solid fa-chalkboard-user"></i> <span class="hidden md:inline">Modo Presentación</span>';
-                presentationBtn.classList.replace('bg-orange-50', 'bg-blue-50');
-                presentationBtn.classList.replace('text-acento-naranja', 'text-institucional-800');
-            }
-        }
+<!-- ══════════════════════════ DESCRIPTORES ══════════════════════════ -->
+<section id="descriptores" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-brain"></i> IX. Descriptores</div>
+      <h2 class="section-title">Descriptores por Nivel Cognitivo</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2.5rem;" class="fade-in">
+      <div class="desc-card">
+        <div class="desc-header" style="background:linear-gradient(135deg,#ef4444,#dc2626);">
+          <div class="desc-level" style="color:white;">N1</div>
+          <div><div class="desc-name">Insuficiente</div>
+          <div class="semaforo"><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div></div></div>
+        </div>
+        <div class="desc-body"><p style="font-size:0.78rem;color:#334155;line-height:1.6;">Reconoce conceptos básicos, pero no los aplica en contextos o situaciones.</p></div>
+      </div>
+      <div class="desc-card">
+        <div class="desc-header" style="background:linear-gradient(135deg,#f97316,#ea580c);">
+          <div class="desc-level" style="color:white;">N2</div>
+          <div><div class="desc-name">Elemental</div>
+          <div class="semaforo"><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div></div></div>
+        </div>
+        <div class="desc-body"><p style="font-size:0.78rem;color:#334155;line-height:1.6;">Identifica relaciones simples y comprende información explícita del texto o problema.</p></div>
+      </div>
+      <div class="desc-card">
+        <div class="desc-header" style="background:linear-gradient(135deg,#22c55e,#16a34a);">
+          <div class="desc-level" style="color:white;">N3</div>
+          <div><div class="desc-name">Bueno</div>
+          <div class="semaforo"><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.2);"></div></div></div>
+        </div>
+        <div class="desc-body"><p style="font-size:0.78rem;color:#334155;line-height:1.6;">Aplica procedimientos y analiza problemas con dos o más variables en situaciones contextualizadas.</p></div>
+      </div>
+      <div class="desc-card">
+        <div class="desc-header" style="background:linear-gradient(135deg,#3b82f6,#1e5ba8);">
+          <div class="desc-level" style="color:white;">N4</div>
+          <div><div class="desc-name">Excelente</div>
+          <div class="semaforo"><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div><div class="sem-dot" style="background:rgba(255,255,255,0.8);"></div></div></div>
+        </div>
+        <div class="desc-body"><p style="font-size:0.78rem;color:#334155;line-height:1.6;">Evalúa, integra y transfiere conocimientos a contextos nuevos con criterio crítico.</p></div>
+      </div>
+    </div>
+    <!-- Ejemplo Humanidades -->
+    <div style="background:white;border-radius:16px;border:1px solid #e2e8f0;overflow:hidden;" class="fade-in stagger-2">
+      <div style="padding:1rem 1.5rem;background:linear-gradient(135deg,#0a1628,#1a3a6c);display:flex;align-items:center;gap:0.8rem;">
+        <i class="fas fa-theater-masks" style="color:#93c5fd;font-size:1.2rem;"></i>
+        <div><div style="color:white;font-weight:700;font-size:0.88rem;">Ejemplo por Área — Humanidades</div><div style="color:rgba(255,255,255,0.6);font-size:0.68rem;">1er Semestre · Descriptores específicos</div></div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:#f8fafc;"><th style="padding:0.75rem 1rem;text-align:left;font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #e2e8f0;">Nivel</th><th style="padding:0.75rem 1rem;text-align:left;font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em;border-bottom:1px solid #e2e8f0;">Descriptor Específico</th></tr></thead>
+          <tbody>
+            <tr><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;"><span class="nivel-badge n1-badge">Insuficiente</span></td><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;font-size:0.78rem;color:#334155;">Reconoce creencias y valores, pero no los relaciona con contextos sociales o culturales.</td></tr>
+            <tr><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;"><span class="nivel-badge n2-badge">Elemental</span></td><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;font-size:0.78rem;color:#334155;">Comprende normas y acciones en situaciones personales y colectivas.</td></tr>
+            <tr><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;"><span class="nivel-badge n3-badge">Bueno</span></td><td style="padding:0.85rem 1rem;border-bottom:1px solid #e2e8f0;font-size:0.78rem;color:#334155;">Infiere consecuencias de valores en la vida social y en la convivencia.</td></tr>
+            <tr><td style="padding:0.85rem 1rem;"><span class="nivel-badge n4-badge">Excelente</span></td><td style="padding:0.85rem 1rem;font-size:0.78rem;color:#334155;">Evalúa críticamente normas éticas en distintos contextos culturales y épocas históricas.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // INICIALIZACIÓN DE COMPONENTES CHART.JS (PALETA DE COLOR CONFIGURADA)
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // Gráfica A: Distribución Cognitiva Teórica de los Exámenes
-            const ctxCognitivo = document.getElementById('chartCognitivo').getContext('2d');
-            new Chart(ctxCognitivo, {
-                type: 'doughnut',
-                data: {
-                    labels: ['N1 Recordar', 'N2 Comprender', 'N3 Aplicar', 'N4 Analizar', 'N5 Evaluar'],
-                    datasets: [{
-                        data: [20, 24, 20, 16, 20], // Ponderación real extraída de la tabla
-                        backgroundColor: ['#64748b', '#2563eb', '#f97316', '#a855f7', '#10b981'],
-                        borderWidth: 1,
-                        borderColor: '#ffffff'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { boxWidth: 10, font: { size: 9, weight: 'bold' } }
-                        }
-                    }
-                }
-            });
+<!-- ══════════════════════════ ESTRATEGIAS DE MEJORA ══════════════════════════ -->
+<section id="mejora" class="section" style="background:#f0f4f9;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-lightbulb"></i> X. Mejora Continua</div>
+      <h2 class="section-title">Estrategias de Mejora por Área Crítica</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;" class="fade-in">
+      <div class="estrategia-card">
+        <div class="estrategia-header" style="background:linear-gradient(135deg,#1e5ba8,#3b82f6);">
+          <div style="width:44px;height:44px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-calculator" style="color:white;font-size:1.1rem;"></i></div>
+          <div class="estrategia-title">Pensamiento Matemático</div>
+        </div>
+        <div class="estrategia-body">
+          <div class="estrategia-item"><div class="estrategia-dot"></div>Talleres semanales de resolución de problemas contextualizados</div>
+          <div class="estrategia-item"><div class="estrategia-dot"></div>Uso de plataformas adaptativas: Khan Academy</div>
+          <div class="estrategia-item"><div class="estrategia-dot"></div>Uso de plataformas adaptativas: Mathway</div>
+        </div>
+      </div>
+      <div class="estrategia-card">
+        <div class="estrategia-header" style="background:linear-gradient(135deg,#16a34a,#22c55e);">
+          <div style="width:44px;height:44px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-pen-nib" style="color:white;font-size:1.1rem;"></i></div>
+          <div class="estrategia-title">Lectura y Redacción</div>
+        </div>
+        <div class="estrategia-body">
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#16a34a;"></div>Clubes de lectura por nivel y área</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#16a34a;"></div>Producción de textos académicos cortos</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#16a34a;"></div>Rúbricas de coevaluación entre pares</div>
+        </div>
+      </div>
+      <div class="estrategia-card">
+        <div class="estrategia-header" style="background:linear-gradient(135deg,#ea580c,#f97316);">
+          <div style="width:44px;height:44px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-language" style="color:white;font-size:1.1rem;"></i></div>
+          <div class="estrategia-title">Inglés</div>
+        </div>
+        <div class="estrategia-body">
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#ea580c;"></div>Inmersión lingüística básica (15 min diarios)</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#ea580c;"></div>Duolingo for Schools integrado</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#ea580c;"></div>Listening con canciones y material auténtico</div>
+        </div>
+      </div>
+      <div class="estrategia-card">
+        <div class="estrategia-header" style="background:linear-gradient(135deg,#7c3aed,#8b5cf6);">
+          <div style="width:44px;height:44px;background:rgba(255,255,255,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fas fa-flask" style="color:white;font-size:1.1rem;"></i></div>
+          <div class="estrategia-title">Ciencias Naturales</div>
+        </div>
+        <div class="estrategia-body">
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#7c3aed;"></div>Laboratorios simulados en entornos virtuales</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#7c3aed;"></div>Proyectos STEAM interdisciplinares</div>
+          <div class="estrategia-item"><div class="estrategia-dot" style="background:#7c3aed;"></div>Aprendizaje basado en fenómenos cotidianos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            // Gráfica B: Simulación de Cumplimiento de Metas Estatales
-            const ctxMetas = document.getElementById('chartMetas').getContext('2d');
-            new Chart(ctxMetas, {
-                type: 'bar',
-                data: {
-                    labels: ['Participación', 'Confiabilidad', 'Mejora Mat', 'Satisfacción'],
-                    datasets: [{
-                        label: 'Meta Mínima %',
-                        data: [95, 85, 5, 80], // Datos reales del documento convertidos a escala base
-                        backgroundColor: '#0f172a',
-                        borderRadius: 4
-                    }, {
-                        label: 'Proyección Esperada %',
-                        data: [98, 88, 7, 85],
-                        backgroundColor: '#10b981',
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: { beginAtZero: true, ticks: { font: { size: 9 } } },
-                        x: { ticks: { font: { size: 9, weight: 'bold' } } }
-                    },
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: { boxWidth: 10, font: { size: 9 } }
-                        }
-                    }
-                }
-            });
-        });
-    </script>
+<!-- ══════════════════════════ INDICADORES ══════════════════════════ -->
+<section id="indicadores" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-tachometer-alt"></i> XI. Indicadores</div>
+      <h2 class="section-title">Dashboard de Indicadores de Seguimiento</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2.5rem;" class="fade-in">
+      <div class="kpi-card">
+        <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;"><i class="fas fa-users" style="color:#1e5ba8;margin-right:0.3rem;"></i>Participación Estudiantil</div>
+        <div class="kpi-value" style="color:#1e5ba8;">≥95%</div>
+        <div class="kpi-label">Meta de cobertura</div>
+        <div class="kpi-formula">(Evaluados / Matriculados) × 100</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" style="width:95%;background:linear-gradient(90deg,#1e5ba8,#3b82f6);"></div></div>
+      </div>
+      <div class="kpi-card">
+        <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;"><i class="fas fa-check-circle" style="color:#16a34a;margin-right:0.3rem;"></i>Confiabilidad del Examen</div>
+        <div class="kpi-value" style="color:#16a34a;">≥0.85</div>
+        <div class="kpi-label">Alfa de Cronbach</div>
+        <div class="kpi-formula">Coeficiente alfa de Cronbach</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" style="width:85%;background:linear-gradient(90deg,#16a34a,#22c55e);"></div></div>
+      </div>
+      <div class="kpi-card">
+        <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;"><i class="fas fa-chart-line" style="color:#ea580c;margin-right:0.3rem;"></i>Mejora en Matemáticas</div>
+        <div class="kpi-value" style="color:#ea580c;">≥5%</div>
+        <div class="kpi-label">Incremento anual</div>
+        <div class="kpi-formula">(Promedio actual − anterior) / anterior</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" style="width:60%;background:linear-gradient(90deg,#ea580c,#f97316);"></div></div>
+      </div>
+      <div class="kpi-card">
+        <div style="font-size:0.65rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;"><i class="fas fa-smile" style="color:#7c3aed;margin-right:0.3rem;"></i>Satisfacción Docente</div>
+        <div class="kpi-value" style="color:#7c3aed;">≥80%</div>
+        <div class="kpi-label">Aceptación aplicadores</div>
+        <div class="kpi-formula">Encuesta a aplicadores</div>
+        <div class="kpi-bar"><div class="kpi-bar-fill" style="width:80%;background:linear-gradient(90deg,#7c3aed,#8b5cf6);"></div></div>
+      </div>
+    </div>
+    <!-- Chart de Indicadores -->
+    <div style="background:white;border-radius:16px;border:1px solid #e2e8f0;padding:1.5rem;" class="fade-in stagger-2">
+      <h3 style="font-size:0.78rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.2rem;">Metas vs. Desempeño Proyectado</h3>
+      <div style="max-width:600px;margin:0 auto;">
+        <canvas id="indicadoresChart" height="280"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ RECOMENDACIONES ══════════════════════════ -->
+<section id="recomendaciones" class="section" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-star"></i> XII. Recomendaciones</div>
+      <h2 class="section-title">Recomendaciones Estratégicas Finales</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0.8rem;" class="fade-in">
+      <div class="recom-card">
+        <div class="recom-num">1</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Estandarización del Proceso</div><div class="recom-text"><strong>Estandarización</strong> del proceso de diseño y aplicación con base en el Modelo Downing de 12 pasos para garantizar validez y confiabilidad técnica de la prueba estatal.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">2</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Supervisión con Padres</div><div class="recom-text"><strong>Supervisión activa</strong> con padres observadores capacitados. Fortalecer su participación como garantes de la transparencia y objetividad del proceso.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">3</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Verificación Técnica</div><div class="recom-text"><strong>Verificación técnica previa</strong> que garantice acceso al correo institucional y a la plataforma de aplicación. Realizar pruebas de conectividad en todos los planteles.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">4</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Simulacros Obligatorios</div><div class="recom-text"><strong>Simulacros obligatorios</strong> antes de la aplicación real. Familiarizar a estudiantes y aplicadores con la plataforma, tiempo y dinámica de la evaluación.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">5</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Difusión de Resultados</div><div class="recom-text"><strong>Difusión oportuna</strong> de resultados con lenguaje claro y orientado a la mejora. Comunicar a estudiantes, docentes y padres con infografías y reportes ejecutivos accesibles.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">6</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Vinculación Universitaria</div><div class="recom-text"><strong>Vinculación con universidades</strong> para la validación externa de reactivos. Establecer convenios con instituciones de educación superior para asegurar la calidad psicométrica.</div></div>
+      </div>
+      <div class="recom-card">
+        <div class="recom-num">7</div>
+        <div><div style="font-size:0.7rem;font-weight:700;color:#1e5ba8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Repositorio Estatal</div><div class="recom-text"><strong>Repositorio estatal de reactivos</strong> accesible a todos los subsistemas. Construir un banco compartido, validado y actualizable para optimizar futuros procesos.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════ ANEXOS ══════════════════════════ -->
+<section id="anexos" class="section section-alt">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="section-tag"><i class="fas fa-paperclip"></i> XIII. Anexos</div>
+      <h2 class="section-title">Anexos Propuestos</h2>
+      <div class="divider"></div>
+      <p class="section-desc">Documentos de soporte operativo para la implementación de la estrategia de evaluación estandarizada.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:0.8rem;" class="fade-in">
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-file-signature"></i></div><div><div class="anexo-name">Anexo A</div><div class="anexo-type">Formato de acta de irregularidades</div></div><i class="fas fa-file-pdf anexo-download"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-clipboard-list"></i></div><div><div class="anexo-name">Anexo B</div><div class="anexo-type">Formato de control de aplicación</div></div><i class="fas fa-file-pdf anexo-download"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-user-tie"></i></div><div><div class="anexo-name">Anexo C</div><div class="anexo-type">Guía para coordinador de aplicación</div></div><i class="fas fa-file-pdf anexo-download"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-chalkboard-teacher"></i></div><div><div class="anexo-name">Anexo D</div><div class="anexo-type">Guía para docente aplicador</div></div><i class="fas fa-file-pdf anexo-download"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-users"></i></div><div><div class="anexo-name">Anexo E</div><div class="anexo-type">Guía para padres observadores</div></div><i class="fas fa-file-pdf anexo-download"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-table"></i></div><div><div class="anexo-name">Anexo F</div><div class="anexo-type">Tabla de especificaciones por subsistema</div></div><i class="fas fa-file-excel anexo-download" style="color:#16a34a;"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-calendar-week"></i></div><div><div class="anexo-name">Anexo G</div><div class="anexo-type">Cronograma detallado por subsistema y plantel</div></div><i class="fas fa-file-excel anexo-download" style="color:#16a34a;"></i></div>
+      <div class="anexo-card"><div class="anexo-icon"><i class="fas fa-chart-bar"></i></div><div><div class="anexo-name">Anexo H</div><div class="anexo-type">Modelo de informe ejecutivo por subsistema</div></div><i class="fas fa-file-word anexo-download" style="color:#1e5ba8;"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:0.5rem;">
+    <strong>Subsecretaría de Educación Media Superior y Superior del Estado de Durango</strong><br>
+    Coordinación Estatal de Evaluación y Mejora Continua
+  </div>
+  <div>Blvd. Domingo Arrieta 1700, Fracc. Domingo Arrieta, C.P. 34180 Durango, Dgo. · Tel. 01 (618) 137-67-36</div>
+  <div style="margin-top:0.5rem;color:rgba(255,255,255,0.4);font-size:0.65rem;">Fecha de emisión: 18 de mayo de 2026 · Estrategia Estatal EEE 2026-2027 · SEED Durango</div>
+</footer>
+
+<script>
+// ───── PROGRESS BAR ─────
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scroll = doc.scrollTop || document.body.scrollTop;
+  const height = doc.scrollHeight - doc.clientHeight;
+  document.getElementById('progress-bar').style.width = (scroll / height * 100) + '%';
+  updateActiveDot();
+});
+
+// ───── SMOOTH SCROLL ─────
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ───── ACTIVE DOT ─────
+const sections = ['hero','presentacion','normativo','objetivos','downing','momentos','especificaciones','reactivos','cronograma','descriptores','mejora','indicadores','recomendaciones','anexos'];
+function updateActiveDot() {
+  const dots = document.querySelectorAll('.sect-dot');
+  const offset = 120;
+  let active = 0;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top <= offset) active = i;
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === active));
+  // nav links
+  document.querySelectorAll('.nav-link').forEach((l, i) => {
+    l.classList.toggle('active', i === active - 1);
+  });
+}
+
+// ───── FADE IN OBSERVER ─────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// ───── TOGGLE PRESENTATION ─────
+function togglePresentation() {
+  document.body.classList.toggle('present-mode');
+}
+
+// ───── EXPAND ALL ─────
+function expandAll() {
+  document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+}
+
+// ───── CHART: Especificaciones ─────
+const especCtx = document.getElementById('especChart').getContext('2d');
+new Chart(especCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['N1 Recordar (20%)', 'N2 Comprender (24%)', 'N3 Aplicar (20%)', 'N4 Analizar (16%)', 'N5 Evaluar (20%)'],
+    datasets: [{
+      data: [20, 24, 20, 16, 20],
+      backgroundColor: ['#ef4444','#f97316','#22c55e','#3b82f6','#8b5cf6'],
+      borderColor: ['#fff','#fff','#fff','#fff','#fff'],
+      borderWidth: 3,
+      hoverOffset: 8
+    }]
+  },
+  options: {
+    responsive: true,
+    cutout: '65%',
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: 'Montserrat', size: 11 }, padding: 16 } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed} reactivos` } }
+    }
+  }
+});
+
+// ───── CHART: Indicadores ─────
+const indCtx = document.getElementById('indicadoresChart').getContext('2d');
+new Chart(indCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Participación Estudiantil', 'Confiabilidad (×100)', 'Mejora Matemáticas', 'Satisfacción Docente'],
+    datasets: [
+      {
+        label: 'Meta',
+        data: [95, 85, 5, 80],
+        backgroundColor: 'rgba(30,91,168,0.15)',
+        borderColor: '#1e5ba8',
+        borderWidth: 2,
+        borderRadius: 6,
+      },
+      {
+        label: 'Proyección',
+        data: [92, 82, 4, 76],
+        backgroundColor: 'rgba(22,163,74,0.6)',
+        borderColor: '#16a34a',
+        borderWidth: 0,
+        borderRadius: 6,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { family: 'Montserrat', size: 10 } } },
+      y: { grid: { color: 'rgba(0,0,0,0.05)' }, ticks: { font: { family: 'Montserrat', size: 10 } } }
+    },
+    plugins: {
+      legend: { labels: { font: { family: 'Montserrat', size: 11 } } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}${ctx.dataIndex === 0 || ctx.dataIndex === 3 ? '%' : ctx.dataIndex === 1 ? ' (alfa)' : '%'}` } }
+    }
+  }
+});
+
+// ───── INIT ─────
+expandAll();
+</script>
 </body>
 </html>
