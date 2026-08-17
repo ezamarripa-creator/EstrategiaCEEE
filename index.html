@@ -348,6 +348,39 @@
       .confidencialidad-titulo { font-size: 1.3rem !important; }
       .confidencialidad-texto { font-size: 0.75rem !important; }
   }
+
+  /* BOTON CONSULTA PARTICIPANTES */
+  .btn-consulta {
+      background: linear-gradient(135deg, #1e5ba8, #3b82f6);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      font-family: Montserrat, sans-serif;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(30,91,168,0.3);
+  }
+  .btn-consulta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30,91,168,0.4);
+      background: linear-gradient(135deg, #1a4f96, #2563eb);
+  }
+  .btn-consulta i {
+      font-size: 0.9rem;
+  }
+  .crono-boton-wrap {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+  }
 </style>
 </head>
 <body>
@@ -395,11 +428,6 @@
       <a class="nav-link" onclick="scrollToSection('recomendaciones')">Recomendaciones</a>
       <a class="nav-link" onclick="scrollToSection('anexos')">Anexos</a>
     </div>
-    <!--  <div class="nav-actions">
-      <button class="btn-nav btn-secondary" onclick="togglePresentation()"><i class="fas fa-desktop" style="margin-right:4px;"></i>Presentar</button>
-      <button class="btn-nav btn-secondary" onclick="expandAll()"><i class="fas fa-expand-alt" style="margin-right:4px;"></i>Expandir</button>
-      <button class="btn-nav btn-primary" onclick="window.print()"><i class="fas fa-download" style="margin-right:4px;"></i>PDF</button>
-    </div>-->
   </div> 
 </nav>
 
@@ -447,15 +475,13 @@
         <div class="hero-card-text">Transición de evaluación reactiva a cultura de mejora basada en evidencia y equidad</div>
       </div>
     </div>
-    <div style="margin-top:2.5rem;display:flex;gap:0.8rem;justify-content:center;align-items:center;">
+    <div style="margin-top:2.5rem;display:flex;gap:0.8rem;justify-content:center;align-items:center;flex-wrap:wrap;">
       <button onclick="scrollToSection('presentacion')" style="background:linear-gradient(135deg,#1e5ba8,#3b82f6);color:white;border:none;padding:0.8rem 1.8rem;border-radius:10px;font-weight:700;font-size:0.82rem;cursor:pointer;font-family:Montserrat,sans-serif;letter-spacing:0.02em;transition:all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''"">
         <i class="fas fa-arrow-down" style="margin-right:0.4rem;"></i>Explorar Estrategia
       </button>
-      <!-- BOTÓN ORIGINAL: Descarga de micrositio (Imprimir página) -->
       <button onclick="window.print()" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:0.8rem 1.8rem;border-radius:10px;font-weight:600;font-size:0.82rem;cursor:pointer;font-family:Montserrat,sans-serif;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.7)'">
         <i class="fas fa-download" style="margin-right:0.4rem;"></i>Descargar PDF (Información de Micrositio)
       </button>
-      <!-- NUEVO BOTÓN: Descargar PDF (ESTRATEGIA OFICIAL) con enlace de Google Drive -->
       <button onclick="window.open('https://drive.google.com/file/d/10LuYODN40_D2PsiBWEWq8TDhfgNHwq7g/view?usp=sharing', '_blank')" style="background:transparent;color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.3);padding:0.8rem 1.8rem;border-radius:10px;font-weight:600;font-size:0.82rem;cursor:pointer;font-family:Montserrat,sans-serif;transition:all 0.2s;" onmouseover="this.style.borderColor='rgba(255,255,255,0.6)';this.style.color='white'" onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='rgba(255,255,255,0.7)'">
         <i class="fas fa-file-pdf" style="margin-right:0.4rem;"></i>📥 Ver PDF (ESTRATEGIA OFICIAL)
       </button>
@@ -988,6 +1014,14 @@
       <h2 class="section-title">Cronograma de Actividades 2026-2027</h2>
       <div class="divider"></div>
     </div>
+
+    <!-- BOTON CONSULTA PARTICIPANTES POR ACADEMIA ESTATAL REGISTRADOS -->
+    <div class="crono-boton-wrap fade-in">
+      <a href="https://ezamarripa-creator.github.io/Registro-Academias-Estatales-CEED_CONSULTA_PARTICIPA/" target="_blank" class="btn-consulta">
+        <i class="fas fa-users"></i> Consultar Participantes por Academia Estatal Registrados
+      </a>
+    </div>
+
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;" class="fade-in">
       <div>
         <div class="crono-item">
