@@ -381,6 +381,154 @@
       display: flex;
       justify-content: center;
   }
+
+  /* ═══════════ GANTT CHART ═══════════ */
+  .gantt-wrap {
+      background: var(--gris-card);
+      border-radius: 18px;
+      border: 1px solid var(--gris-border);
+      box-shadow: 0 4px 24px rgba(10,22,40,0.06);
+      overflow: hidden;
+  }
+  .gantt-scroll {
+      overflow-x: auto;
+  }
+  .gantt-inner {
+      min-width: 920px;
+  }
+  .gantt-months {
+      display: flex;
+      position: relative;
+      background: linear-gradient(135deg, var(--azul-deep), var(--azul-mid));
+      padding: 0.7rem 0 0.7rem 0;
+  }
+  .gantt-label-col {
+      width: 300px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      padding-left: 1.25rem;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+  }
+  .gantt-months-track {
+      position: relative;
+      flex: 1;
+      display: flex;
+      height: 100%;
+  }
+  .gantt-month {
+      flex: 1;
+      text-align: center;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.9);
+      border-left: 1px solid rgba(255,255,255,0.12);
+      padding: 0.15rem 0;
+  }
+  .gantt-body {
+      position: relative;
+  }
+  .gantt-row {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid var(--gris-border);
+  }
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-row:nth-child(even) { background: #fafbfd; }
+  .gantt-row-label {
+      width: 300px;
+      flex-shrink: 0;
+      padding: 0.65rem 1rem 0.65rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.15rem;
+      border-right: 1px solid var(--gris-border);
+  }
+  .gantt-row-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 0.6rem;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+  }
+  .gantt-row-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--azul-deep);
+      line-height: 1.25;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+  }
+  .gantt-row-date {
+      font-size: 0.6rem;
+      color: #64748b;
+      font-weight: 600;
+      margin-left: 1.5rem;
+  }
+  .gantt-track-col {
+      position: relative;
+      flex: 1;
+      min-height: 52px;
+  }
+  .gantt-gridlines {
+      position: absolute;
+      inset: 0;
+      display: flex;
+  }
+  .gantt-gridline {
+      flex: 1;
+      border-left: 1px solid #eef1f6;
+  }
+  .gantt-bar {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(10,22,40,0.18);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      min-width: 6px;
+  }
+  .gantt-bar-fill {
+      width: 100%;
+      height: 100%;
+  }
+  .gantt-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      padding: 1rem 1.25rem;
+      background: #f8fafc;
+      border-top: 1px solid var(--gris-border);
+      font-size: 0.62rem;
+      color: #475569;
+      font-weight: 600;
+  }
+  .gantt-legend-item { display: flex; align-items: center; gap: 0.4rem; }
+  .gantt-legend-dot { width: 10px; height: 10px; border-radius: 3px; flex-shrink: 0; }
+  .gantt-today-note {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.65rem;
+      color: #dc2626;
+      font-weight: 700;
+      padding: 0.6rem 1.25rem 0;
+  }
 </style>
 </head>
 <body>
@@ -1022,71 +1170,213 @@
       </a>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;" class="fade-in">
-      <div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#1e5ba8;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Junio — Julio 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Diseño y validación de tabla de descriptores</div></div>
+    <div class="gantt-wrap fade-in">
+      <div class="gantt-scroll">
+        <div class="gantt-inner">
+          <div class="gantt-months">
+            <div class="gantt-label-col">Actividad</div>
+            <div class="gantt-months-track">
+          <div class="gantt-month">SEP</div>
+          <div class="gantt-month">OCT</div>
+          <div class="gantt-month">NOV</div>
+          <div class="gantt-month">DIC</div>
+          <div class="gantt-month">ENE</div>
+          <div class="gantt-month">FEB</div>
+          <div class="gantt-month">MAR</div>
+          <div class="gantt-month">ABR</div>
+          <div class="gantt-month">MAY</div>
+          <div class="gantt-month">JUN</div>
+            </div>
           </div>
+          <div class="gantt-body">
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#1e5ba8;">1</span>Fase de Diseño Conceptual Inicial</div>
+          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Consolidación de academias por disciplina</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>7 al 11 de septiembre 2026</div>
         </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#7c3aed;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Agosto 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Diseño y validación de tabla de especificaciones</div></div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
           </div>
-        </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#0891b2;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Agosto — Septiembre 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Diseño de estrategias por subsistema</div></div>
-          </div>
-        </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#ea580c;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Septiembre 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Validación de reactivos (CAER)</div></div>
+          <div class="gantt-bar" style="width:1.65%;left:1.98%;background:#1e5ba8;" title="Fase de Diseño Conceptual Inicial — 7 al 11 de septiembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#1e5ba8dd,#1e5ba8);"></div>
           </div>
         </div>
       </div>
-      <div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#16a34a;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">1ª Semana de Octubre 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Pilotaje estatal</div></div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#7c3aed;">2</span>Validación de la Estructura de Medición</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>14 al 30 de septiembre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:5.61%;left:4.29%;background:#7c3aed;" title="Validación de la Estructura de Medición — 14 al 30 de septiembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#7c3aeddd,#7c3aed);"></div>
           </div>
         </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#dc2626;box-shadow:0 0 0 4px rgba(220,38,38,0.2);"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date" style="color:#dc2626;">9 al 13 de Noviembre 2026</div>
-            <div class="crono-card-wrap" style="border-color:rgba(220,38,38,0.3);border-left:3px solid #dc2626;"><div class="crono-activity" style="color:#dc2626;"><i class="fas fa-star" style="margin-right:0.3rem;font-size:0.7rem;"></i>Aplicación oficial estatal</div></div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">3</span>Estrategias de Despliegue de los Subsistemas</div>
+          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Creación de reactivos</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>28 de septiembre al 16 de octubre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:6.27%;left:8.91%;background:#0891b2;" title="Estrategias de Despliegue de los Subsistemas — 28 de septiembre al 16 de octubre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#0891b2dd,#0891b2);"></div>
           </div>
         </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#0891b2;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Diciembre 2026</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Análisis de resultados</div></div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#ea580c;">4</span>Arbitraje Técnico de Reactivos (Comité CAER)</div>
+          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Jueceo</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>16 al 30 de octubre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:4.95%;left:14.85%;background:#ea580c;" title="Arbitraje Técnico de Reactivos (Comité CAER) — 16 al 30 de octubre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#ea580cdd,#ea580c);"></div>
           </div>
         </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#1e5ba8;"></div><div class="crono-connector"></div></div>
-          <div class="crono-body">
-            <div class="crono-date">Enero 2027</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Emisión de reportes por subsistema</div></div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#16a34a;">5</span>Ensamblaje de Instrumentos para Aplicación</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>3 al 13 de noviembre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:3.63%;left:20.79%;background:#16a34a;" title="Ensamblaje de Instrumentos para Aplicación — 3 al 13 de noviembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#16a34add,#16a34a);"></div>
           </div>
         </div>
-        <div class="crono-item">
-          <div class="crono-line"><div class="crono-dot" style="background:#16a34a;"></div></div>
-          <div class="crono-body" style="padding-bottom:0;">
-            <div class="crono-date">Febrero — Junio 2027</div>
-            <div class="crono-card-wrap"><div class="crono-activity">Estrategias de mejora por plantel</div></div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">6</span>Pilotaje de Control Psicométrico</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>17 al 20 de noviembre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:1.32%;left:25.41%;background:#0891b2;" title="Pilotaje de Control Psicométrico — 17 al 20 de noviembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#0891b2dd,#0891b2);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#7c3aed;">7</span>Análisis y Validación de Resultados del Piloteo</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>23 al 27 de noviembre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:1.65%;left:27.39%;background:#7c3aed;" title="Análisis y Validación de Resultados del Piloteo — 23 al 27 de noviembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#7c3aeddd,#7c3aed);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" style="color:#dc2626;"><span class="gantt-row-num" style="background:#dc2626;">8</span><i class="fas fa-star" style="margin-right:0.3rem;font-size:0.62rem;"></i>Jornada General de Aplicación Oficial Estatal</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>5 al 16 de diciembre 2026</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:3.96%;left:31.35%;background:#dc2626;" title="Jornada General de Aplicación Oficial Estatal — 5 al 16 de diciembre 2026">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#dc2626dd,#dc2626);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#1e5ba8;">9</span>Análisis Masivo de Datos Colectados</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>11 al 22 de enero 2027</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:3.96%;left:43.56%;background:#1e5ba8;" title="Análisis Masivo de Datos Colectados — 11 al 22 de enero 2027">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#1e5ba8dd,#1e5ba8);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">10</span>Emisión de Reportes por Subsistema</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>25 al 29 de enero 2027</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:1.65%;left:48.18%;background:#0891b2;" title="Emisión de Reportes por Subsistema — 25 al 29 de enero 2027">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#0891b2dd,#0891b2);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#ea580c;">11</span>Generación de Estrategias de Mejora Continua</div>
+          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Por subsistema</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>2 al 19 de febrero 2027</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:5.94%;left:50.83%;background:#ea580c;" title="Generación de Estrategias de Mejora Continua — 2 al 19 de febrero 2027">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#ea580cdd,#ea580c);"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gantt-row">
+        <div class="gantt-row-label">
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#16a34a;">12</span>Activación de Estrategias de Mejora Continua</div>
+          
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>Febrero — Junio 2027</div>
+        </div>
+        <div class="gantt-track-col">
+          <div class="gantt-gridlines">
+            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
+          </div>
+          <div class="gantt-bar" style="width:49.50%;left:50.50%;background:#16a34a;" title="Activación de Estrategias de Mejora Continua — Febrero — Junio 2027">
+            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#16a34add,#16a34a);"></div>
+          </div>
+        </div>
+      </div>
+          </div>
+          <div class="gantt-legend">
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#dc2626;"></div>Aplicación Oficial Estatal</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#1e5ba8;"></div>Diseño y Análisis</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#7c3aed;"></div>Validación Metodológica</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#0891b2;"></div>Despliegue y Pilotaje</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#ea580c;"></div>Arbitraje y Mejora</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#16a34a;"></div>Aplicación en Aula</div>
           </div>
         </div>
       </div>
