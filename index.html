@@ -394,7 +394,7 @@
       overflow-x: auto;
   }
   .gantt-inner {
-      min-width: 920px;
+      min-width: 980px;
   }
   .gantt-months {
       display: flex;
@@ -403,7 +403,7 @@
       padding: 0.7rem 0 0.7rem 0;
   }
   .gantt-label-col {
-      width: 300px;
+      width: 340px;
       flex-shrink: 0;
       display: flex;
       align-items: center;
@@ -441,7 +441,7 @@
   .gantt-row:last-child { border-bottom: none; }
   .gantt-row:nth-child(even) { background: #fafbfd; }
   .gantt-row-label {
-      width: 300px;
+      width: 340px;
       flex-shrink: 0;
       padding: 0.65rem 1rem 0.65rem 1.25rem;
       display: flex;
@@ -476,6 +476,49 @@
       color: #64748b;
       font-weight: 600;
       margin-left: 1.5rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+  }
+  .gantt-row-desc-tag {
+      font-size: 0.62rem;
+      color: #1e5ba8;
+      font-weight: 700;
+      font-style: italic;
+      margin-left: 1.5rem;
+      opacity: 0.85;
+  }
+  .gantt-row-desc {
+      font-size: 0.62rem;
+      color: #8592a6;
+      font-weight: 500;
+      line-height: 1.4;
+      margin-left: 1.5rem;
+      margin-top: 0.05rem;
+  }
+  .gantt-row-duration {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.05rem 0.45rem;
+      background: rgba(30,91,168,0.08);
+      border: 1px solid rgba(30,91,168,0.15);
+      border-radius: 100px;
+      font-weight: 700;
+      color: #1e5ba8;
+      font-size: 0.58rem;
+      white-space: nowrap;
+  }
+  .gantt-footnote {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.6rem;
+      color: #94a3b8;
+      font-style: italic;
+      border-top: 1px solid var(--gris-border);
+      background: #fbfcfe;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
   }
   .gantt-track-col {
       position: relative;
@@ -1192,14 +1235,15 @@
       <div class="gantt-row">
         <div class="gantt-row-label">
           <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#1e5ba8;">1</span>Fase de Diseño Conceptual Inicial</div>
-          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Consolidación de academias por disciplina</div>
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>7 al 11 de septiembre 2026</div>
+          <div class="gantt-row-desc-tag">Consolidación de academias por disciplina</div>
+          <div class="gantt-row-desc">Presentación, consolidación e inicio para el diseño técnico y validación colegiada de la tabla de descriptores y competencias clave del proyecto.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>11 de septiembre 2026<span class="gantt-row-duration">1 día hábil</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
             <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
           </div>
-          <div class="gantt-bar" style="width:1.65%;left:1.98%;background:#1e5ba8;" title="Fase de Diseño Conceptual Inicial — 7 al 11 de septiembre 2026">
+          <div class="gantt-bar" style="width:0.33%;left:3.30%;background:#1e5ba8;" title="Fase de Diseño Conceptual Inicial — 11 de septiembre 2026">
             <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#1e5ba8dd,#1e5ba8);"></div>
           </div>
         </div>
@@ -1207,8 +1251,9 @@
       <div class="gantt-row">
         <div class="gantt-row-label">
           <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#7c3aed;">2</span>Validación de la Estructura de Medición</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>14 al 30 de septiembre 2026</div>
+          <div class="gantt-row-desc-tag">Descriptores y tablas de especificación</div>
+          <div class="gantt-row-desc">Diseño y validación metodológica fina de la tabla de especificaciones e indicadores por área curricular.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>14 al 30 de septiembre 2026<span class="gantt-row-duration">13 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1222,8 +1267,9 @@
       <div class="gantt-row">
         <div class="gantt-row-label">
           <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">3</span>Estrategias de Despliegue de los Subsistemas</div>
-          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Creación de reactivos</div>
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>28 de septiembre al 16 de octubre 2026</div>
+          <div class="gantt-row-desc-tag">Programación de la aplicación por grupo, plantel y subsistema</div>
+          <div class="gantt-row-desc">Diseño de adaptaciones y adecuaciones operativas específicas por cada subsistema escolar estatal para aplicación.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>28 de septiembre al 16 de octubre 2026<span class="gantt-row-duration">15 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1237,8 +1283,9 @@
       <div class="gantt-row">
         <div class="gantt-row-label">
           <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#ea580c;">4</span>Arbitraje Técnico de Reactivos (Comité CAER)</div>
-          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Jueceo</div>
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>16 al 30 de octubre 2026</div>
+          <div class="gantt-row-desc-tag">Jueceo</div>
+          <div class="gantt-row-desc">Validación analítica de la pertinencia y calibración técnica del banco de ítems por comités de expertos.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>16 al 30 de octubre 2026<span class="gantt-row-duration">11 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1252,8 +1299,8 @@
       <div class="gantt-row">
         <div class="gantt-row-label">
           <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#16a34a;">5</span>Ensamblaje de Instrumentos para Aplicación</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>3 al 13 de noviembre 2026</div>
+          <div class="gantt-row-desc">Fase de construcción y armado de instrumentos para la aplicación estandarizada y calibración analítica de los exámenes.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>3 al 13 de noviembre 2026<span class="gantt-row-duration">9 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1266,54 +1313,25 @@
       </div>
       <div class="gantt-row">
         <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">6</span>Pilotaje de Control Psicométrico</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>17 al 20 de noviembre 2026</div>
+          <div class="gantt-row-title" style="color:#dc2626;"><span class="gantt-row-num" style="background:#dc2626;">6</span><i class="fas fa-star" style="margin-right:0.3rem;font-size:0.62rem;"></i>Jornada General de Aplicación Oficial Estatal</div>
+          <div class="gantt-row-desc-tag">1er, 3er y 5to semestre</div>
+          <div class="gantt-row-desc">Ventana unificada e institucional para la aplicación de la prueba en todos los planteles integrados de Durango.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>25 al 27 de noviembre 2026<span class="gantt-row-duration">3 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
             <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
           </div>
-          <div class="gantt-bar" style="width:1.32%;left:25.41%;background:#0891b2;" title="Pilotaje de Control Psicométrico — 17 al 20 de noviembre 2026">
-            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#0891b2dd,#0891b2);"></div>
-          </div>
-        </div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#7c3aed;">7</span>Análisis y Validación de Resultados del Piloteo</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>23 al 27 de noviembre 2026</div>
-        </div>
-        <div class="gantt-track-col">
-          <div class="gantt-gridlines">
-            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
-          </div>
-          <div class="gantt-bar" style="width:1.65%;left:27.39%;background:#7c3aed;" title="Análisis y Validación de Resultados del Piloteo — 23 al 27 de noviembre 2026">
-            <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#7c3aeddd,#7c3aed);"></div>
-          </div>
-        </div>
-      </div>
-      <div class="gantt-row">
-        <div class="gantt-row-label">
-          <div class="gantt-row-title" style="color:#dc2626;"><span class="gantt-row-num" style="background:#dc2626;">8</span><i class="fas fa-star" style="margin-right:0.3rem;font-size:0.62rem;"></i>Jornada General de Aplicación Oficial Estatal</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>5 al 16 de diciembre 2026</div>
-        </div>
-        <div class="gantt-track-col">
-          <div class="gantt-gridlines">
-            <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
-          </div>
-          <div class="gantt-bar" style="width:3.96%;left:31.35%;background:#dc2626;" title="Jornada General de Aplicación Oficial Estatal — 5 al 16 de diciembre 2026">
+          <div class="gantt-bar" style="width:0.99%;left:28.05%;background:#dc2626;" title="Jornada General de Aplicación Oficial Estatal — 25 al 27 de noviembre 2026">
             <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#dc2626dd,#dc2626);"></div>
           </div>
         </div>
       </div>
       <div class="gantt-row">
         <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#1e5ba8;">9</span>Análisis Masivo de Datos Colectados</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>11 al 22 de enero 2027</div>
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#1e5ba8;">7</span>Análisis Masivo de Datos Colectados</div>
+          <div class="gantt-row-desc">Cálculo de bases de datos crudas, sábanas analíticas y empaquetamiento psicométrico formal.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>11 al 22 de enero 2027<span class="gantt-row-duration">10 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1326,9 +1344,9 @@
       </div>
       <div class="gantt-row">
         <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">10</span>Emisión de Reportes por Subsistema</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>25 al 29 de enero 2027</div>
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#0891b2;">8</span>Emisión de Reportes por Subsistema</div>
+          <div class="gantt-row-desc">Rendición de informes ejecutivos específicos a los mandos medios y directores generales estatales.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>25 al 29 de enero 2027<span class="gantt-row-duration">5 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1341,9 +1359,10 @@
       </div>
       <div class="gantt-row">
         <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#ea580c;">11</span>Generación de Estrategias de Mejora Continua</div>
-          <div style="font-size:0.62rem;color:#7c8aa0;font-weight:600;font-style:italic;">Por subsistema</div>
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>2 al 19 de febrero 2027</div>
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#ea580c;">9</span>Generación de Estrategias de Mejora Continua</div>
+          <div class="gantt-row-desc-tag">Por subsistema</div>
+          <div class="gantt-row-desc">Ejecución obligatoria de gestación de estrategias contextualizadas por subsistema, diseñados por cada plantel educativo.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>2 al 19 de febrero 2027<span class="gantt-row-duration">14 días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
@@ -1356,15 +1375,15 @@
       </div>
       <div class="gantt-row">
         <div class="gantt-row-label">
-          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#16a34a;">12</span>Activación de Estrategias de Mejora Continua</div>
-          
-          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>Febrero — Junio 2027</div>
+          <div class="gantt-row-title" ><span class="gantt-row-num" style="background:#16a34a;">10</span>Activación de Estrategias de Mejora Continua</div>
+          <div class="gantt-row-desc">Ejecución obligatoria en el aula de los planes pedagógicos remediales diseñados por cada plantel educativo.</div>
+          <div class="gantt-row-date"><i class="fas fa-calendar-day" style="margin-right:0.3rem;"></i>1 de febrero al 30 de junio 2027<span class="gantt-row-duration">108* días hábiles</span></div>
         </div>
         <div class="gantt-track-col">
           <div class="gantt-gridlines">
             <div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div><div class="gantt-gridline"></div>
           </div>
-          <div class="gantt-bar" style="width:49.50%;left:50.50%;background:#16a34a;" title="Activación de Estrategias de Mejora Continua — Febrero — Junio 2027">
+          <div class="gantt-bar" style="width:49.50%;left:50.50%;background:#16a34a;" title="Activación de Estrategias de Mejora Continua — 1 de febrero al 30 de junio 2027">
             <div class="gantt-bar-fill" style="background:linear-gradient(90deg,#16a34add,#16a34a);"></div>
           </div>
         </div>
@@ -1374,10 +1393,11 @@
             <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#dc2626;"></div>Aplicación Oficial Estatal</div>
             <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#1e5ba8;"></div>Diseño y Análisis</div>
             <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#7c3aed;"></div>Validación Metodológica</div>
-            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#0891b2;"></div>Despliegue y Pilotaje</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#0891b2;"></div>Despliegue y Reportes</div>
             <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#ea580c;"></div>Arbitraje y Mejora</div>
-            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#16a34a;"></div>Aplicación en Aula</div>
+            <div class="gantt-legend-item"><div class="gantt-legend-dot" style="background:#16a34a;"></div>Ensamblaje y Aplicación en Aula</div>
           </div>
+          <div class="gantt-footnote"><i class="fas fa-asterisk"></i> La duración marcada con asterisco corresponde a un periodo continuo de ejecución en aula, no a días hábiles consecutivos.</div>
         </div>
       </div>
     </div>
